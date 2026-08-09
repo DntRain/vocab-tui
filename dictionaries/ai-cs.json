@@ -1,0 +1,1384 @@
+{
+  "id": "ai-cs",
+  "name": "AI & CS",
+  "description": "人工智能与计算机科学核心术语 · English and Chinese definitions",
+  "source": "https://github.com/skywind3000/ECDICT",
+  "words": [
+    {
+      "word": "accelerator",
+      "phonetic": "/әk'selәreitә/",
+      "part": "noun",
+      "definition": "n. a pedal that controls the throttle valve\nn. a valve that regulates the supply of fuel to the engine\nn. a scientific instrument that increases the kinetic energy of charged particles",
+      "translation": "n. 加速剂, 加速器, 油门\n[化] 加速器; 早强剂; 促进剂; 硫化促进剂",
+      "example": ""
+    },
+    {
+      "word": "accuracy",
+      "phonetic": "/'ækjurәsi/",
+      "part": "noun",
+      "definition": "n. the quality of being near to the true value\nn. (mathematics) the number of significant figures given in a number",
+      "translation": "n. 精确, 正确\n[计] 准确度",
+      "example": ""
+    },
+    {
+      "word": "activation",
+      "phonetic": "/ækti'veiʃәn/",
+      "part": "noun",
+      "definition": "n. stimulation of activity in an organism or chemical\nn. making active and effective (as a bomb)",
+      "translation": "n. 活化, 激活\n[化] 活化; 活化作用; 激活; 激活作用",
+      "example": ""
+    },
+    {
+      "word": "agent",
+      "phonetic": "/'eidʒәnt/",
+      "part": "noun",
+      "definition": "n. an active and efficient cause; capable of producing a certain effect\nn. a representative who acts on behalf of other persons or organizations\nn. a substance that exerts some force or effect\nn. a businessman who buys or sells for another in exchange for a commission",
+      "translation": "n. 代理商, 政府代表, 动原, 媒介\n[计] 代理程序",
+      "example": ""
+    },
+    {
+      "word": "algorithm",
+      "phonetic": "/ˈælɡərɪðəm/",
+      "part": "noun",
+      "definition": "a finite sequence of rules used to solve a problem",
+      "translation": "n. 算法\n[计] 算法",
+      "example": "The sorting algorithm has logarithmic space complexity."
+    },
+    {
+      "word": "alignment",
+      "phonetic": "/ә'lainmәnt/",
+      "part": "noun",
+      "definition": "n. the spatial property possessed by an arrangement or position of things in a straight line or in parallel lines\nn. the act of adjusting or aligning the parts of a device in relation to each other",
+      "translation": "n. 队列, 结盟, 校正\n[计] 校准; 对齐; 对准",
+      "example": ""
+    },
+    {
+      "word": "allocation",
+      "phonetic": "/.ælәu'keiʃәn/",
+      "part": "noun",
+      "definition": "n. (computer science) the assignment of particular areas of a magnetic disk to particular data or instructions",
+      "translation": "n. 配置, 分配, 拨给\n[经] 分配, 拨款, 分摊",
+      "example": ""
+    },
+    {
+      "word": "annotation",
+      "phonetic": "/ænәu'teiʃәn/",
+      "part": "noun",
+      "definition": "n. the act of adding notes",
+      "translation": "n. 注解, 评注",
+      "example": ""
+    },
+    {
+      "word": "API",
+      "phonetic": "",
+      "part": "word",
+      "definition": "See the Chinese definition below.",
+      "translation": "[计] 应用程序接口, 自动优先中断\n[经] 美国石油协会",
+      "example": ""
+    },
+    {
+      "word": "architecture",
+      "phonetic": "/'ɑ:kitektʃә/",
+      "part": "noun",
+      "definition": "n. an architectural product or work\nn. the discipline dealing with the principles of design and construction and ornamentation of fine buildings\nn. the profession of designing buildings and environments with consideration for their esthetic effect",
+      "translation": "n. 建筑学, 建筑式样\n[计] 体系结构",
+      "example": ""
+    },
+    {
+      "word": "array",
+      "phonetic": "/ә'rei/",
+      "part": "noun / transitive verb",
+      "definition": "n. an orderly arrangement\nn. an impressive display\nn. especially fine or decorative clothing\nn. an arrangement of aerials spaced to give desired directional characteristics",
+      "translation": "n. 排列, 衣服, 大批, 军队\nvt. 布署, 打扮, 排列\n[计] 数组; 阵列",
+      "example": ""
+    },
+    {
+      "word": "artificial intelligence",
+      "phonetic": "",
+      "part": "word",
+      "definition": "See the Chinese definition below.",
+      "translation": "[计] 人工智能",
+      "example": ""
+    },
+    {
+      "word": "attention",
+      "phonetic": "/ә'tenʃәn/",
+      "part": "noun",
+      "definition": "n. the process whereby a person concentrates on some features of the environment to the (relative) exclusion of others\nn. a general interest that leads people to want to know more\nn. a courteous act indicating affection\nn. the faculty or power of mental concentration",
+      "translation": "n. 注意, 注意力\n[计] 引起注意信号",
+      "example": ""
+    },
+    {
+      "word": "authentication",
+      "phonetic": "/ɒ:θenti'keiʃәn/",
+      "part": "noun",
+      "definition": "n. a mark on an article of trade to indicate its origin and authenticity\nn. validating the authenticity of something or someone",
+      "translation": "n. 证明可信, 证实为真, 使具法律效力\n[计] 验证",
+      "example": ""
+    },
+    {
+      "word": "authorization",
+      "phonetic": "/.ɒ:θәrai'zeiʃәn/",
+      "part": "noun",
+      "definition": "n. the act of conferring legality or sanction or formal warrant",
+      "translation": "n. 授权, 许可\n[经] 授权, 许可, 批准",
+      "example": ""
+    },
+    {
+      "word": "automation",
+      "phonetic": "/.ɒ:tә'meiʃәn/",
+      "part": "noun",
+      "definition": "n. the act of implementing the control of equipment with advanced technology; usually involving electronic hardware\nn. the condition of being automatically operated or controlled\nn. equipment used to achieve automatic control or operation",
+      "translation": "n. 自动化, 自动操作\n[计] 自动学; 自动化",
+      "example": ""
+    },
+    {
+      "word": "availability",
+      "phonetic": "/ә.veilә'biliti/",
+      "part": "noun",
+      "definition": "n the quality of being at hand when needed",
+      "translation": "n. 有效性, 可利用性, 可利用的人\n[计] 有效性; 可用性",
+      "example": ""
+    },
+    {
+      "word": "backpropagation",
+      "phonetic": "/ˌbækprɒpəˈɡeɪʃən/",
+      "part": "noun",
+      "definition": "n. an algorithm that computes gradients backward through a neural network",
+      "translation": "n. 反向传播；神经网络中由输出层向输入层计算梯度的算法",
+      "example": ""
+    },
+    {
+      "word": "bandwidth",
+      "phonetic": "/'bændwidθ/",
+      "part": "noun",
+      "definition": "n. a data transmission rate; the maximum amount of information (bits/second) that can be transmitted along a channel",
+      "translation": "n. 频带宽度, 通带宽度\n[计] 带宽, 频宽",
+      "example": ""
+    },
+    {
+      "word": "batch",
+      "phonetic": "/bætʃ/",
+      "part": "noun / verb",
+      "definition": "n. all the loaves of bread baked at the same time\nn. (often followed by `of') a large number or amount or extent\nn. a collection of things or persons to be handled together\nv. batch together; assemble or process as a batch",
+      "translation": "n. 一次所烘的面包, 一次所制之量, 一组, 批, 成批, 分批\nv. 成批, 分批处理\n[计] 一批",
+      "example": ""
+    },
+    {
+      "word": "benchmark",
+      "phonetic": "",
+      "part": "noun",
+      "definition": "n. a standard by which something can be measured or judged\nn. a surveyor's mark on a permanent object of predetermined position and elevation used as a reference point",
+      "translation": "[计] 基准程序; 基准",
+      "example": ""
+    },
+    {
+      "word": "bias",
+      "phonetic": "/'baiәs/",
+      "part": "noun / verb / adjective",
+      "definition": "n. a partiality that prevents objective consideration of an issue or situation\nv. influence in an unfair way\nv. cause to be biased\ns. slanting diagonally across the grain of a fabric",
+      "translation": "n. 偏见, 斜纹\na. 偏斜的\nadv. 偏斜\nvt. 使有偏见\n[计] 偏流; 偏压; 偏磁; 偏离",
+      "example": ""
+    },
+    {
+      "word": "binary",
+      "phonetic": "/'bainәri/",
+      "part": "noun / adjective",
+      "definition": "n. a pre-compiled, pre-linked program that is ready to run under a given operating system; a binary for one operating system will not run on a different operating system\na. of or pertaining to a number system have 2 as its base\ns. consisting of two (units or components or elements or terms)",
+      "translation": "a. 由两部分组成的, 二进位的, 二元的\n[计] 二进制的; 二态的; 二进制, 二进制文件传输类型设置命令",
+      "example": ""
+    },
+    {
+      "word": "branch",
+      "phonetic": "/bræntʃ/",
+      "part": "noun / intransitive verb / transitive verb",
+      "definition": "n. a division of some larger or more complex organization\nn. a division of a stem, or secondary stem arising from the main stem of a plant\nn. a part of a forked or branching shape\nn. a stream or river connected to a larger one",
+      "translation": "n. 树枝, 支店, 支流, 分部\nvi. 分支, 出枝\nvt. 分割, 用枝状叶脉刺绣花纹装饰\n[计] 分支, 目录分支",
+      "example": ""
+    },
+    {
+      "word": "cache",
+      "phonetic": "/kæʃ/",
+      "part": "noun / transitive verb",
+      "definition": "n. a hidden storage space (for money or provisions or weapons)\nn. (computer science) RAM memory that is set aside as a specialized buffer storage that is continually updated; used to optimize data transfers between system elements with different characteristics",
+      "translation": "n. 隐藏所, 隐藏的粮食或物资, 贮藏物, 高速缓冲存储器\nvt. 隐藏, 窖藏\n[计] 高速缓冲存储器, 高速缓冲",
+      "example": ""
+    },
+    {
+      "word": "checkpoint",
+      "phonetic": "/'tʃekpɒint/",
+      "part": "noun",
+      "definition": "n. a place (as at a frontier) where travellers are stopped for inspection and clearance",
+      "translation": "n. 检查站\n[计] 检查点",
+      "example": ""
+    },
+    {
+      "word": "classification",
+      "phonetic": "/.klæsifi'keiʃәn/",
+      "part": "noun",
+      "definition": "n. a group of people or things arranged by class or category\nn. the basic cognitive process of arranging into classes or categories\nn. restriction imposed by the government on documents or weapons that are available only to certain authorized people",
+      "translation": "n. 分类, 分级\n[化] 分级; 分粒; 分类",
+      "example": ""
+    },
+    {
+      "word": "client",
+      "phonetic": "/'klaiәnt/",
+      "part": "noun",
+      "definition": "n. a person who seeks the advice of a lawyer",
+      "translation": "n. 客户, 顾客, 委托人\n[计] 客户, 客户机, 客户机程序",
+      "example": ""
+    },
+    {
+      "word": "cloud",
+      "phonetic": "/klaud/",
+      "part": "noun / transitive verb / intransitive verb",
+      "definition": "n. any collection of particles (e.g., smoke or dust) or gases that is visible\nn. a visible mass of water or ice particles suspended at a considerable altitude\nn. out of touch with reality\nn. a cause of worry or gloom or trouble",
+      "translation": "n. 云, 阴暗, 烟雾, 疑团\nvt. 以云遮敝, 笼罩, 使黯然\nvi. 乌云密布, 阴沉",
+      "example": ""
+    },
+    {
+      "word": "cluster",
+      "phonetic": "/'klʌstә/",
+      "part": "verb / noun / intransitive verb",
+      "definition": "v. come together as in a cluster or flock",
+      "translation": "n. 串, 丛, 群, 簇\nvi. 成串, 丛生\nvt. 使聚集\n[计] 簇",
+      "example": ""
+    },
+    {
+      "word": "clustering",
+      "phonetic": "/'klʌstәriŋ/",
+      "part": "word",
+      "definition": "n a grouping of a number of similar things\nv come together as in a cluster or flock\nv gather or cause to gather into a cluster",
+      "translation": "[计] 分类归并; 聚类",
+      "example": ""
+    },
+    {
+      "word": "code",
+      "phonetic": "/kәud/",
+      "part": "noun / verb / transitive verb",
+      "definition": "n. a set of rules or principles or laws (especially written ones)\nn. a coding system used for transmitting messages requiring brevity or secrecy\nn. (computer science) the symbolic arrangement of data or instructions in a computer program or the set of such instructions\nv. attach a code to",
+      "translation": "n. 代码, 密码, 法规, 法典\nvt. 把...编码\n[计] 代码",
+      "example": ""
+    },
+    {
+      "word": "compiler",
+      "phonetic": "/kәm'pailә/",
+      "part": "noun",
+      "definition": "n. a person who compiles information (as for reference purposes)\nn. (computer science) a program that decodes instructions written in a higher order language and produces an assembly language program",
+      "translation": "n. 编辑者\n[计] 编译程序",
+      "example": ""
+    },
+    {
+      "word": "complexity",
+      "phonetic": "/kәm'pleksiti/",
+      "part": "noun",
+      "definition": "n. the quality of being intricate and compounded",
+      "translation": "n. 复杂, 复杂性, 复杂的事物",
+      "example": ""
+    },
+    {
+      "word": "concurrency",
+      "phonetic": "",
+      "part": "word",
+      "definition": "n agreement of results or opinions\nn acting together, as agents or circumstances or events",
+      "translation": "[计] 并发性; 并行性",
+      "example": ""
+    },
+    {
+      "word": "consistency",
+      "phonetic": "/kәn'sistәnsi/",
+      "part": "noun",
+      "definition": "n. the property of holding together and retaining its shape\nn. a harmonious uniformity or agreement among things or parts\nn. logical coherence and accordance with the facts\nn. (logic) an attribute of a logical system that is so constituted that none of the propositions deducible from the axioms contradict one another",
+      "translation": "n. 坚硬性, 黏稠度, 一致性\n[化] 稠度; 一致性",
+      "example": ""
+    },
+    {
+      "word": "constant",
+      "phonetic": "/'kɒnstәnt/",
+      "part": "noun / adjective",
+      "definition": "n. a quantity that does not vary\nn. a number representing a quantity assumed to have a fixed value in a specified mathematical context\na. steadfast in purpose or devotion or affection",
+      "translation": "n. 常数, 恒量\na. 不变的, 一定的, 时常的\n[计] 常量; 常数; 恒值",
+      "example": ""
+    },
+    {
+      "word": "container",
+      "phonetic": "/kәn'teinә/",
+      "part": "noun",
+      "definition": "n. any object that can be used to hold things (especially a large metal boxlike object of standardized dimensions that can be loaded from one form of transport to another)",
+      "translation": "n. 容器, 集装箱\n[化] 集装箱; 贮存箱; 容器(任何一种)",
+      "example": ""
+    },
+    {
+      "word": "context",
+      "phonetic": "/'kɒntekst/",
+      "part": "noun",
+      "definition": "n. discourse that surrounds a language unit and helps to determine its interpretation\nn. the set of facts or circumstances that surround a situation or event",
+      "translation": "n. 上下文, 背景, 来龙去脉\nn. 上下文\n[计] 上下文",
+      "example": ""
+    },
+    {
+      "word": "convolution",
+      "phonetic": "/.kɒnvә'lu:ʃәn/",
+      "part": "noun",
+      "definition": "n. the action of coiling or twisting or winding together",
+      "translation": "n. 回旋, 卷绕, 盘旋\n[计] 卷积",
+      "example": ""
+    },
+    {
+      "word": "corpus",
+      "phonetic": "/'kɒ:pәs/",
+      "part": "noun",
+      "definition": "n. a collection of writings\nn. the main part of an organ or other bodily structure",
+      "translation": "n. (事物的)主体, 文集, 本金, 语料库\n[医] 体",
+      "example": ""
+    },
+    {
+      "word": "CPU",
+      "phonetic": "",
+      "part": "word",
+      "definition": "n (computer science) the part of a computer (a microprocessor chip) that does most of the data processing",
+      "translation": "中央处理器\n[计] 中央处理器",
+      "example": ""
+    },
+    {
+      "word": "data structure",
+      "phonetic": "",
+      "part": "word",
+      "definition": "See the Chinese definition below.",
+      "translation": "[计] 数据结构",
+      "example": ""
+    },
+    {
+      "word": "database",
+      "phonetic": "/'deitәbeis/",
+      "part": "noun",
+      "definition": "n. an organized body of related information",
+      "translation": "n. 数据库\n[计] 数据库",
+      "example": ""
+    },
+    {
+      "word": "dataset",
+      "phonetic": "",
+      "part": "word",
+      "definition": "See the Chinese definition below.",
+      "translation": "[电] 资料组",
+      "example": ""
+    },
+    {
+      "word": "deadlock",
+      "phonetic": "/'dedlɒk/",
+      "part": "noun / verb",
+      "definition": "n. a situation in which no progress can be made or no advancement is possible",
+      "translation": "n. 僵局, 停顿\nv. (使)停顿, (使)相持不下\n[计] 死锁",
+      "example": ""
+    },
+    {
+      "word": "debug",
+      "phonetic": "/di:'bʌg/",
+      "part": "verb / transitive verb",
+      "definition": "v. locate and correct errors in a computer program code",
+      "translation": "vt. 除错, 改正有毛病部分, 除去窃听器, 调试\n[计] 调试; DOS外部命令:其功能是对命令文件或执行文件进行调试或测试\n也可用于编写小的命令文件",
+      "example": ""
+    },
+    {
+      "word": "decoder",
+      "phonetic": "/di:'kәudә/",
+      "part": "noun",
+      "definition": "n. the kind of intellectual who converts messages from a code to plain text\nn. a machine that converts a coded text into ordinary language",
+      "translation": "n. 译电员, 译码器\n[计] 译码器",
+      "example": ""
+    },
+    {
+      "word": "deep learning",
+      "phonetic": "/ˌdiːp ˈlɜːnɪŋ/",
+      "part": "noun",
+      "definition": "n. machine learning based on neural networks with many layers",
+      "translation": "n. 深度学习；使用多层神经网络进行表示学习的方法",
+      "example": ""
+    },
+    {
+      "word": "deployment",
+      "phonetic": "",
+      "part": "noun",
+      "definition": "n. the distribution of forces in preparation for battle or work",
+      "translation": "[计] 展开",
+      "example": ""
+    },
+    {
+      "word": "derivative",
+      "phonetic": "/di'rivәtiv/",
+      "part": "noun / adjective",
+      "definition": "n. a compound obtained from, or regarded as derived from, another compound\nn. (linguistics) a word that is derived from another word\ns. resulting from or employing derivation",
+      "translation": "a. 引出的, 派生的\nn. 引出之物, 派生物, 衍生字",
+      "example": ""
+    },
+    {
+      "word": "distillation",
+      "phonetic": "/.disti'leiʃәn/",
+      "part": "noun",
+      "definition": "n. the process of purifying a liquid by boiling it and condensing its vapors",
+      "translation": "n. 蒸馏\n[化] 蒸馏; 蒸馏法",
+      "example": ""
+    },
+    {
+      "word": "distributed",
+      "phonetic": "/di'stribju:tid/",
+      "part": "adjective",
+      "definition": "a. spread out or scattered about or divided up",
+      "translation": "a. 分布式的\n[计] 分散对齐, 分布式处理",
+      "example": ""
+    },
+    {
+      "word": "distribution",
+      "phonetic": "/.distrә'bju:ʃәn/",
+      "part": "noun",
+      "definition": "n. (statistics) an arrangement of values of a variable showing their observed or theoretical frequency of occurrence\nn. the spatial or geographic property of being scattered about over a range, area, or volume\nn. the act of distributing or spreading or apportioning\nn. the commercial activity of transporting and selling goods from a producer to a consumer",
+      "translation": "n. 分配\n[计] 分布",
+      "example": ""
+    },
+    {
+      "word": "dropout",
+      "phonetic": "/'drɒpaut/",
+      "part": "noun",
+      "definition": "n. someone who quits school before graduation\nn. someone who withdraws from a social group or environment",
+      "translation": "n. 退学学生, 中途退学\n[电] 离去",
+      "example": ""
+    },
+    {
+      "word": "edge computing",
+      "phonetic": "/ˌedʒ kəmˈpjuːtɪŋ/",
+      "part": "noun",
+      "definition": "n. processing data near the place where it is generated rather than in a central cloud",
+      "translation": "n. 边缘计算；在接近数据产生位置的设备或节点上处理数据",
+      "example": ""
+    },
+    {
+      "word": "embedding",
+      "phonetic": "/em'bediŋ/",
+      "part": "word",
+      "definition": "v fix or set securely or deeply\nv attach to, as a journalist to a military unit when reporting on a war",
+      "translation": "[化] 埋置; 包埋; (塑料的)嵌铸\n[医] 包埋, 植入",
+      "example": ""
+    },
+    {
+      "word": "encoder",
+      "phonetic": "/in'kәudә/",
+      "part": "noun",
+      "definition": "See the Chinese definition below.",
+      "translation": "n. 译码器\n[计] 编码器",
+      "example": ""
+    },
+    {
+      "word": "encryption",
+      "phonetic": "/-'kripʃən/",
+      "part": "word",
+      "definition": "n the activity of converting data or information into code",
+      "translation": "[计] 加密",
+      "example": ""
+    },
+    {
+      "word": "entropy",
+      "phonetic": "/'entrәpi/",
+      "part": "noun",
+      "definition": "n (communication theory) a numerical measure of the uncertainty of an outcome\nn (thermodynamics) a thermodynamic quantity representing the amount of energy in a system that is no longer available for doing mechanical work",
+      "translation": "n. 熵\n[计] 熵",
+      "example": ""
+    },
+    {
+      "word": "epoch",
+      "phonetic": "/'i:pɒk/",
+      "part": "noun",
+      "definition": "n. (astronomy) an arbitrarily fixed date that is the point in time relative to which information (as coordinates of a celestial body) is recorded\nn. a unit of geological time that is a subdivision of a period and is itself divided into ages",
+      "translation": "n. 新纪元, 时代, 时期",
+      "example": ""
+    },
+    {
+      "word": "evaluation",
+      "phonetic": "/i.vælju'eiʃәn/",
+      "part": "noun",
+      "definition": "n. act of ascertaining or fixing the value or worth of\nn. an appraisal of the value of something",
+      "translation": "n. 评估, 估价, 求值\n[计] 鉴定; 评价; 求值",
+      "example": ""
+    },
+    {
+      "word": "exception",
+      "phonetic": "/ik'sepʃәn/",
+      "part": "noun",
+      "definition": "n. a deliberate act of omission\nn. an instance that does not conform to a rule or generalization; the only exception was her last child\"\nn. grounds for adverse criticism",
+      "translation": "n. 例外, 除外, 异议\n[计] 例外; 异常",
+      "example": ""
+    },
+    {
+      "word": "explainability",
+      "phonetic": "/ɪkˌspleɪnəˈbɪləti/",
+      "part": "noun",
+      "definition": "n. the degree to which a model's behavior and outputs can be understood",
+      "translation": "n. 可解释性；模型行为及输出可被人理解的程度",
+      "example": ""
+    },
+    {
+      "word": "exploit",
+      "phonetic": "/'eksplɒit/",
+      "part": "verb / noun / transitive verb",
+      "definition": "v. use or manipulate to one's advantage\nv. draw from; make good use of",
+      "translation": "n. 功绩, 勋绩\nvt. 开发, 利用, 开拓, 剥削",
+      "example": ""
+    },
+    {
+      "word": "feature",
+      "phonetic": "/'fi:tʃә/",
+      "part": "noun / transitive verb / intransitive verb",
+      "definition": "n. a prominent attribute or aspect of something\nn. the characteristic parts of a person's face: eyes and nose and mouth and chin\nn. the principal (full-length) film in a program at a movie theater\nn. a special or prominent article in a newspaper or magazine",
+      "translation": "n. 面孔的一部分(如眼、口等), 特征, 容貌, 特色, 特写\nvt. 是...的特色, 特写, 放映\nvi. 起重要作用\n[计] 特性",
+      "example": ""
+    },
+    {
+      "word": "fine-tuning",
+      "phonetic": "",
+      "part": "verb",
+      "definition": "v improve or perfect by pruning or polishing\nv adjust finely\nv make fine adjustments or divide into marked intervals for optimal measuring",
+      "translation": "v. 调整, 使有规则( fine-tune的现在分词 )",
+      "example": ""
+    },
+    {
+      "word": "firewall",
+      "phonetic": "",
+      "part": "noun",
+      "definition": "n. (colloquial) the application of maximum thrust\nn. (computing) a security system consisting of a combination of hardware and software that limits the exposure of a computer or computer network to attack from crackers; commonly used on local area networks that are connected to the internet\nn. a fireproof (or fire-resistant) wall designed to prevent the spread of fire through a building or a vehicle",
+      "translation": "[计] 放火墙, 隔离",
+      "example": ""
+    },
+    {
+      "word": "framework",
+      "phonetic": "/'freimwә:k/",
+      "part": "noun",
+      "definition": "n. the underlying structure\nn. a structure supporting or containing something",
+      "translation": "n. 结构, 骨架, 参照标准, 准则, 观点\n[医] 构架组织",
+      "example": ""
+    },
+    {
+      "word": "function",
+      "phonetic": "/'fʌŋkʃәn/",
+      "part": "noun / intransitive verb",
+      "definition": "n. (mathematics) a mathematical relation such that each element of a given set (the domain of the function) is associated with an element of another set (the range of the function)\nn. what something is used for\nn. the actions and activities assigned to or required or expected of a person or group\nn. a relation such that one thing is dependent on another",
+      "translation": "n. 官能, 职务, 功能, 函数\nvi. 活动, 运行, 行使职责\n[计] 功能, 函数",
+      "example": ""
+    },
+    {
+      "word": "generation",
+      "phonetic": "/.dʒenә'reiʃәn/",
+      "part": "noun",
+      "definition": "n. group of genetically related organisms constituting a single step in the line of descent\nn. the normal time between successive generations\nn. a stage of technological development or innovation\nn. the production of heat or electricity",
+      "translation": "n. 一代, 一世, 产生\n[医] 生殖, 世代",
+      "example": ""
+    },
+    {
+      "word": "generative artificial intelligence",
+      "phonetic": "/ˈdʒenərətɪv ˌɑːtɪfɪʃəl ɪnˈtelɪdʒəns/",
+      "part": "noun",
+      "definition": "n. artificial intelligence that creates new text, images, audio, code, or other content",
+      "translation": "n. 生成式人工智能；能够生成文本、图像、音频或代码等新内容的人工智能",
+      "example": ""
+    },
+    {
+      "word": "gpu",
+      "phonetic": "",
+      "part": "word",
+      "definition": "See the Chinese definition below.",
+      "translation": "abbr. 地面动力装置（ground power unit）",
+      "example": ""
+    },
+    {
+      "word": "gradient",
+      "phonetic": "/ˈɡreɪdiənt/",
+      "part": "noun",
+      "definition": "a vector describing the direction and rate of greatest increase of a function",
+      "translation": "n. 倾斜度, 梯度, 坡度, 斜率\na. 渐升的, 渐降的, 步行的",
+      "example": "Training updates the weights using the loss gradient."
+    },
+    {
+      "word": "graph",
+      "phonetic": "/græf/",
+      "part": "noun / verb",
+      "definition": "n. a visual representation of the relations between certain quantities plotted with reference to a set of axes\nv. represent by means of a graph\nv. plot upon a graph",
+      "translation": "n. 曲线图, 图表, 图形\n[计] 图形",
+      "example": ""
+    },
+    {
+      "word": "hallucination",
+      "phonetic": "/hә.lu:si'neiʃәn/",
+      "part": "noun",
+      "definition": "n. illusory perception; a common symptom of severe mental disorder\nn. an object perceived during a hallucinatory episode",
+      "translation": "n. 幻觉, 幻想\n[医] 幻觉",
+      "example": ""
+    },
+    {
+      "word": "hash",
+      "phonetic": "/hæʃ/",
+      "part": "noun / verb / transitive verb",
+      "definition": "n. chopped meat mixed with potatoes and browned\nv. chop up",
+      "translation": "n. 剁碎的食物, 杂乱无章的的一大堆, 杂烩, 复述\nvt. 切碎, 搞糟",
+      "example": ""
+    },
+    {
+      "word": "hyperparameter",
+      "phonetic": "/ˌhaɪpəpəˈræmɪtə/",
+      "part": "noun",
+      "definition": "n. a configuration value chosen before or during model training rather than learned from data",
+      "translation": "n. 超参数；训练前或训练过程中设定而非从数据中学习的参数",
+      "example": ""
+    },
+    {
+      "word": "index",
+      "phonetic": "/'indeks/",
+      "part": "noun / transitive verb / intransitive verb",
+      "definition": "n. a numerical scale used to compare variables with one another or with some reference number\nn. a number or ratio (a value on a scale of measurement) derived from a series of observed facts; can reveal relative changes as a function of time\nn. an alphabetical listing of names and topics along with page numbers where they are discussed\nn. the finger next to the thumb",
+      "translation": "n. 索引, 指针, 指数, 指标\nvt. 编入索引中, 指出\nvi. 做索引\n[计] 下标; 附标; 变址; 索引; 编索引",
+      "example": ""
+    },
+    {
+      "word": "inference",
+      "phonetic": "/ˈɪnfərəns/",
+      "part": "noun",
+      "definition": "a conclusion drawn from evidence; in AI, the process of generating an output from a model",
+      "translation": "n. 推论\n[法] 推论, 推理, 推断",
+      "example": "The accelerator reduces neural-network inference latency."
+    },
+    {
+      "word": "interface",
+      "phonetic": "/'intәfeis/",
+      "part": "noun",
+      "definition": "n. (chemistry) a surface forming a common boundary between two things (two objects or liquids or chemical phases)\nn. (computer science) a program that controls a display for the user (usually on a computer monitor) and that allows the user to interact with the system\nn. the overlap where two theories or phenomena affect each other or have links with each other\nn. (computer science) computer circuit consisting of the hardware and associated circuitry that links one device with another (especially a computer and a hard disk drive or other peripherals)",
+      "translation": "n. 分界面, 接触面, 界面\n[计] 接口, 界面",
+      "example": ""
+    },
+    {
+      "word": "interpretability",
+      "phonetic": "/ɪntɜ:prɪ'təbɪlɪtɪ/",
+      "part": "word",
+      "definition": "See the Chinese definition below.",
+      "translation": "可解释性",
+      "example": ""
+    },
+    {
+      "word": "interpreter",
+      "phonetic": "/in'tә:pritә/",
+      "part": "noun",
+      "definition": "n. someone who mediates between speakers of different languages\nn. someone who uses art to represent something\nn. (computer science) a program that translates and executes source language statements one line at a time",
+      "translation": "n. 直译程序, 解释者, 口译者, 注释器\n[计] 注释器",
+      "example": ""
+    },
+    {
+      "word": "iteration",
+      "phonetic": "/.itә'reiʃәn/",
+      "part": "noun",
+      "definition": "n. (computer science) a single execution of a set of instructions that are to be repeated\nn. (computer science) executing the same set of instructions a given number of times or until a specified result is obtained\nn. doing or saying again; a repeated performance",
+      "translation": "n. 重复, 反复说的话\n[计] 迭代",
+      "example": ""
+    },
+    {
+      "word": "kernel",
+      "phonetic": "/'kә:nl/",
+      "part": "noun",
+      "definition": "n. the inner and usually edible part of a seed or grain or nut or fruit stone\nn. a single whole grain of a cereal\nn. the choicest or most essential or most vital part of some idea or experience",
+      "translation": "n. 核心, 中心, 精髓, 内核\n[计] 内核",
+      "example": ""
+    },
+    {
+      "word": "label",
+      "phonetic": "/'leibl/",
+      "part": "noun / transitive verb",
+      "definition": "n. a brief description given for purposes of identification\nn. trade name of a company that produces musical recordings\nn. a radioactive isotope that is used in a compound in order to trace the mechanism of a chemical reaction\nn. an identifying or descriptive marker that is attached to an object",
+      "translation": "n. 标签, 称号, 商标, 标志\nvt. 贴标签于, 标注\n[计] 标志; 标注; DOS外部命令:用于建立改变或删除磁盘卷标号",
+      "example": ""
+    },
+    {
+      "word": "language model",
+      "phonetic": "/ˈlæŋɡwɪdʒ ˌmɒdl/",
+      "part": "noun",
+      "definition": "n. a model that represents the probability and structure of sequences of language",
+      "translation": "n. 语言模型；对语言序列的概率及结构进行建模的模型",
+      "example": ""
+    },
+    {
+      "word": "latency",
+      "phonetic": "/ˈleɪtənsi/",
+      "part": "noun",
+      "definition": "the delay before a transfer of data or operation begins",
+      "translation": "n. 潜伏, 潜在\n[计] 传输时间, 传输延迟时间",
+      "example": "Caching reduced the average request latency."
+    },
+    {
+      "word": "layer",
+      "phonetic": "/'leiә/",
+      "part": "noun / transitive verb",
+      "definition": "n. single thickness of usually some homogeneous substance\nn. a relatively thin sheetlike expanse or region lying over or under another\nn. a hen that lays eggs\nn. thin structure composed of a single thickness of cells",
+      "translation": "n. 层, 产卵鸡, 放置者\nvt. 分层堆积, 压植\n[计] 层",
+      "example": ""
+    },
+    {
+      "word": "linked list",
+      "phonetic": "",
+      "part": "word",
+      "definition": "See the Chinese definition below.",
+      "translation": "[计] 链表",
+      "example": ""
+    },
+    {
+      "word": "loss",
+      "phonetic": "/lɒs/",
+      "part": "noun",
+      "definition": "n. something that is lost\nn. gradual decline in amount or activity\nn. the act of losing someone or something\nn. the disadvantage that results from losing something",
+      "translation": "n. 损失, 遗失, 失败, 输, 错过, 伤亡\n[化] 损失; 损耗",
+      "example": ""
+    },
+    {
+      "word": "machine learning",
+      "phonetic": "",
+      "part": "word",
+      "definition": "See the Chinese definition below.",
+      "translation": "[计] 机器学习",
+      "example": ""
+    },
+    {
+      "word": "malware",
+      "phonetic": "",
+      "part": "noun",
+      "definition": "See the Chinese definition below.",
+      "translation": "n. 恶意软件; 恶意软件。malware是malicious software的合成形式; 流氓软件",
+      "example": ""
+    },
+    {
+      "word": "matrix",
+      "phonetic": "/'meitriks/",
+      "part": "noun",
+      "definition": "n. (mathematics) a rectangular array of quantities or expressions set out by rows and columns; treated as a single element and manipulated according to rules\nn. (geology) amass of fine-grained rock in which fossils, crystals, or gems are embedded\nn. an enclosure within which something originates or develops (from the Latin for womb)\nn. the body substance in which tissue cells are embedded",
+      "translation": "n. 母体, 子宫, 基质, 脉石, 模型, 矩阵\n[计] 矩阵",
+      "example": ""
+    },
+    {
+      "word": "memory",
+      "phonetic": "/'memәri/",
+      "part": "noun",
+      "definition": "n. something that is remembered\nn. the cognitive processes whereby past experience is remembered\nn. the power of retaining and recalling past experience\nn. an electronic memory device",
+      "translation": "n. 记忆, 记忆力, 回忆, 纪念, 存储\nn. 内存\n[计] 存储器, 内存, 查看内存实用程序",
+      "example": ""
+    },
+    {
+      "word": "merge",
+      "phonetic": "/mә:dʒ/",
+      "part": "transitive verb / intransitive verb",
+      "definition": "v become one\nv mix together different elements\nv join or combine",
+      "translation": "vt. 使合并, 使消失, 吞没\nvi. 合并, 渐渐消失\n[计] 合并",
+      "example": ""
+    },
+    {
+      "word": "metric",
+      "phonetic": "/'metrik/",
+      "part": "adjective",
+      "definition": "a. based on the meter as a standard of measurement",
+      "translation": "a. 公尺的, 公制的, 计量的\n[医] 测量的, 米制的, 公制的",
+      "example": ""
+    },
+    {
+      "word": "model",
+      "phonetic": "/'mɒdәl/",
+      "part": "noun / adjective / intransitive verb",
+      "definition": "n. a hypothetical description of a complex entity or process\nn. a type of product\nn. a person who poses for a photographer or painter or sculptor\nn. representation of something (sometimes on a smaller scale)",
+      "translation": "n. 模型, 模范, 模特儿\na. 模范的, 作模型用的\nvi. 做模型, 做模特儿\nvt. 使模仿, 塑造\n[计] 模型",
+      "example": ""
+    },
+    {
+      "word": "multimodal",
+      "phonetic": "",
+      "part": "word",
+      "definition": "See the Chinese definition below.",
+      "translation": "[计] 多模式的",
+      "example": ""
+    },
+    {
+      "word": "mutex",
+      "phonetic": "",
+      "part": "noun",
+      "definition": "See the Chinese definition below.",
+      "translation": "n. 互斥量；互斥；互斥元, 互斥体",
+      "example": ""
+    },
+    {
+      "word": "network",
+      "phonetic": "/'netwә:k/",
+      "part": "noun",
+      "definition": "n. an interconnected system of things or people\nn. (broadcasting) a communication system consisting of a group of broadcasting stations that all transmit the same programs\nn. a system of intersecting lines or channels\nn. (electronics) a system of interconnected electronic components or circuits",
+      "translation": "n. 网络, 广播网, 网状物\n[计] 网络",
+      "example": ""
+    },
+    {
+      "word": "neural network",
+      "phonetic": "",
+      "part": "word",
+      "definition": "See the Chinese definition below.",
+      "translation": "[化] 神经网络",
+      "example": ""
+    },
+    {
+      "word": "neuron",
+      "phonetic": "/'njuәrɔn/",
+      "part": "noun",
+      "definition": "n a cell that is specialized to conduct nerve impulses",
+      "translation": "n. 神经原, 轴索, 神经细胞\n[计] 神经元",
+      "example": ""
+    },
+    {
+      "word": "normalization",
+      "phonetic": "/.nɒ:mәlai'zeiʃәn/",
+      "part": "noun",
+      "definition": "n the imposition of standards or regulations",
+      "translation": "n. 常态化, 正常化, 正规化\n[化] 归一化; 正态化; 正火; 正火处理",
+      "example": ""
+    },
+    {
+      "word": "objective",
+      "phonetic": "/әb'dʒektiv/",
+      "part": "noun / adjective",
+      "definition": "n. the lens or system of lenses in a telescope or microscope that is nearest the object being viewed\na. undistorted by emotion or personal bias; based on observable phenomena\na. serving as or indicating the object of a verb or of certain prepositions and used for certain other purposes\ns. emphasizing or expressing things as perceived without distortion of personal feelings, insertion of fictional matter, or interpretation",
+      "translation": "n. 目的, 目标, 宗旨, 宾格, 实物\na. 客观的, 如实的, 无偏见的, 宾格的",
+      "example": ""
+    },
+    {
+      "word": "operating system",
+      "phonetic": "",
+      "part": "word",
+      "definition": "See the Chinese definition below.",
+      "translation": "操作系统\n[计] 操作系统",
+      "example": ""
+    },
+    {
+      "word": "optimization",
+      "phonetic": "/.ɒptimai'zeiʃәn/",
+      "part": "noun",
+      "definition": "n. the act of rendering optimal",
+      "translation": "n. 最佳化, 最优化\n[计] 优化",
+      "example": ""
+    },
+    {
+      "word": "overfitting",
+      "phonetic": "",
+      "part": "noun / verb",
+      "definition": "See the Chinese definition below.",
+      "translation": "n. 过适；[数] 过度拟合\nv. 过适（overfit现在分词）",
+      "example": ""
+    },
+    {
+      "word": "packet",
+      "phonetic": "/'pækit/",
+      "part": "noun / transitive verb",
+      "definition": "n. (computer science) a message or message fragment\nn. a small package or bundle",
+      "translation": "n. 小包, 一批信件, 大量, 信息包\nvt. 打包, 装进小包\n[计] 分组, 分组报文, 数据分组",
+      "example": ""
+    },
+    {
+      "word": "parallelism",
+      "phonetic": "/'pærәlelizm/",
+      "part": "noun",
+      "definition": "n. similarity by virtue of corresponding",
+      "translation": "n. 平行, 对应, 类似, 比拟\n[计] 并行性",
+      "example": ""
+    },
+    {
+      "word": "parameter",
+      "phonetic": "/pә'ræmitә/",
+      "part": "noun",
+      "definition": "n. a constant in the equation of a curve that can be varied to yield a family of similar curves\nn. any factor that defines a system and determines (or limits) its performance\nn. a quantity (such as the mean or variance) that characterizes a statistical population and that can be estimated by calculations from sample data",
+      "translation": "n. 参变数, 参变量, 参数, 参量\n[计] 参量; 参数",
+      "example": ""
+    },
+    {
+      "word": "partition",
+      "phonetic": "/pɑ:'tiʃәn/",
+      "part": "noun / verb / transitive verb",
+      "definition": "n. a vertical structure that divides or separates (as a wall divides one room from another)\nn. (computer science) the part of a hard disk that is dedicated to a particular operating system or application and accessed as a single unit\nn. (anatomy) a structure that separates areas in an organism\nv. divide into parts, pieces, or sections",
+      "translation": "n. 分割, 隔离物, 隔墙, 财产分割\nvt. 区分, 瓜分, 隔开, 分割\n[计] 分区; 划分",
+      "example": ""
+    },
+    {
+      "word": "pipeline",
+      "phonetic": "/'paiplain/",
+      "part": "noun",
+      "definition": "n. a pipe used to transport liquids or gases",
+      "translation": "n. 管道, 传递途径\n[化] 管路; 管线",
+      "example": ""
+    },
+    {
+      "word": "precision",
+      "phonetic": "/pri'siʒәn/",
+      "part": "noun / adjective",
+      "definition": "n the quality of being reproducible in amount or performance",
+      "translation": "n. 精密, 精确, 精确度, 精度\na. 精密的, 精确的\n[计] 精度",
+      "example": ""
+    },
+    {
+      "word": "prediction",
+      "phonetic": "/pri'dikʃәn/",
+      "part": "noun",
+      "definition": "n. the act of predicting (as by reasoning about the future)\nn. a statement made about the future",
+      "translation": "n. 预言, 预报\n[化] 预测",
+      "example": ""
+    },
+    {
+      "word": "pretraining",
+      "phonetic": "/ˌpriːˈtreɪnɪŋ/",
+      "part": "noun",
+      "definition": "n. training a model on broad data before adapting it to a specific task",
+      "translation": "n. 预训练；在面向具体任务调整之前先使用大规模通用数据训练模型",
+      "example": ""
+    },
+    {
+      "word": "privacy",
+      "phonetic": "/'praivәsi/",
+      "part": "noun",
+      "definition": "n. the quality of being secluded from the presence or view of others\nn. the condition of being concealed or hidden",
+      "translation": "n. 隐私, 隐居, 秘密\n[计] 个人保密权",
+      "example": ""
+    },
+    {
+      "word": "probability",
+      "phonetic": "/.prɒbә'biliti/",
+      "part": "noun",
+      "definition": "n. a measure of how likely it is that some event will occur; a number expressing the ratio of favorable cases to the whole number of cases possible\nn. the quality of being probable; a probable event or the most probable event",
+      "translation": "n. 可能性, 或然率, 几率, 概率\n[化] 概率; 几率",
+      "example": ""
+    },
+    {
+      "word": "process",
+      "phonetic": "/'prɒses/",
+      "part": "noun / transitive verb / adjective",
+      "definition": "n. (psychology) the performance of some composite cognitive activity; an operation that affects mental contents\nn. a mental process that you are not directly aware of\nn. a natural prolongation or projection from a part of an organism either animal or plant\nn. a sustained phenomenon or one marked by gradual changes through a series of states",
+      "translation": "n. 程序, 进行, 过程\nvt. 加工, 使...接受处理, 对...处置, 对...起诉\na. 经加工的, 有特殊光效的\n[计] 进程",
+      "example": ""
+    },
+    {
+      "word": "prompt",
+      "phonetic": "/prɒmpt/",
+      "part": "noun / verb / adjective",
+      "definition": "n. a cue given to a performer (usually the beginning of the next line to be spoken)\nn. (computer science) a symbol that appears on the computer screen to indicate that the computer is ready to receive a command\nv. serve as the inciting cause of\nv. assist (somebody acting or reciting) by suggesting the next words of something forgotten or imperfectly learned",
+      "translation": "n. 激励, 提示, 提醒物, 提词, 付款期限\na. 迅速的, 敏捷的, 立刻的, 提词员的\nvt. 激励, 鼓动, 提示\nadv. 准时地\n[计] 提示符; DOS内部命令:设定DOS命令行的提示符",
+      "example": ""
+    },
+    {
+      "word": "protocol",
+      "phonetic": "/'prәutәkɒl/",
+      "part": "noun / verb",
+      "definition": "n. (computer science) rules determining the format and transmission of data\nn. forms of ceremony and etiquette observed by diplomats and heads of state\nn. code of correct conduct",
+      "translation": "n. 草案, 礼仪, 协议\nv. 拟定\n[计] 协议, 协议列表实用程序",
+      "example": ""
+    },
+    {
+      "word": "pruning",
+      "phonetic": "/'pru:niŋ/",
+      "part": "noun",
+      "definition": "n. something that has been pruned off of a plant\nn. the act of trimming a plant",
+      "translation": "n. 修剪, 修枝, 剪枝\n[计] 修剪",
+      "example": ""
+    },
+    {
+      "word": "quantization",
+      "phonetic": "/,kwɔntai'zeiʃәn/",
+      "part": "noun",
+      "definition": "n. the act of dividing into quanta or expressing in terms of quantum theory",
+      "translation": "n. 量子化\n[计] 量子化",
+      "example": ""
+    },
+    {
+      "word": "query",
+      "phonetic": "/'kwiәri/",
+      "part": "noun / verb",
+      "definition": "n an instance of questioning\nv pose a question",
+      "translation": "n. 疑问, 疑问号, 质问, 查询\nv. 询问, 质问\n[计] 查询",
+      "example": ""
+    },
+    {
+      "word": "queue",
+      "phonetic": "/kju:/",
+      "part": "noun / transitive verb / intransitive verb",
+      "definition": "n. a line of people or vehicles waiting for something\nn. (information processing) an ordered list of tasks to be performed or messages to be transmitted\nn. a braid of hair at the back of the head",
+      "translation": "n. 辫子, 一队人, 队列\nvt. 使排队, 将...梳成辫子\nvi. 排队\n[计] 队列",
+      "example": ""
+    },
+    {
+      "word": "reasoning",
+      "phonetic": "/'ri:zniŋ/",
+      "part": "noun",
+      "definition": "n. thinking that is coherent and logical",
+      "translation": "n. 推论, 推理, 论证\n[化] 推理",
+      "example": ""
+    },
+    {
+      "word": "recall",
+      "phonetic": "/ri'kɒ:l/",
+      "part": "noun / transitive verb",
+      "definition": "n. a request by the manufacturer of a defective product to return the product (as for replacement or repair)\nn. a call to return\nn. a bugle call that signals troops to return\nn. the process of remembering (especially the process of recovering information by mental effort)",
+      "translation": "n. 回忆, 召回, 撤消\nvt. 回想, 回忆, 召回, 撤消, 使恢复\n[计] 检索",
+      "example": ""
+    },
+    {
+      "word": "recursion",
+      "phonetic": "/ri'kә:ʃәn/",
+      "part": "noun",
+      "definition": "n. (mathematics) an expression such that each term is generated by repeating a particular mathematical operation",
+      "translation": "[计] 递归; 循环",
+      "example": ""
+    },
+    {
+      "word": "regression",
+      "phonetic": "/ri'greʃәn/",
+      "part": "noun",
+      "definition": "n. (psychiatry) a defense mechanism in which you flee from reality by assuming a more infantile state\nn. the relation between selected values of x and observed values of y (from which the most probable value of y can be predicted for any value of x)\nn. returning to a former state",
+      "translation": "n. 退步, 回归\n[计] 回归",
+      "example": ""
+    },
+    {
+      "word": "regularization",
+      "phonetic": "/,re^julәrai'zeiʃәn/",
+      "part": "noun",
+      "definition": "n. the condition of having been made regular (or more regular)",
+      "translation": "n. 规则化, 调整",
+      "example": ""
+    },
+    {
+      "word": "reinforcement learning",
+      "phonetic": "/ˌriːɪnˈfɔːsmənt ˈlɜːnɪŋ/",
+      "part": "noun",
+      "definition": "n. machine learning in which an agent learns by receiving rewards or penalties",
+      "translation": "n. 强化学习；智能体通过奖励或惩罚信号学习策略的方法",
+      "example": ""
+    },
+    {
+      "word": "replication",
+      "phonetic": "/.repli'keiʃәn/",
+      "part": "noun",
+      "definition": "n. (genetics) the process whereby DNA makes a copy of itself before cell division\nn. (law) a pleading made by a plaintiff in reply to the defendant's plea or answer\nn. the repetition of an experiment in order to test the validity of its conclusion",
+      "translation": "n. 回答, 反响, 复制, 第二次答辩, 折转, 弯回\n[化] 复制",
+      "example": ""
+    },
+    {
+      "word": "repository",
+      "phonetic": "/ri'pɔzitәri/",
+      "part": "noun",
+      "definition": "n. a person to whom a secret is entrusted\nn. a burial vault (usually for some famous person)",
+      "translation": "n. 贮藏所, 贮物器, 仓库, 博物馆, 店铺, 陈列室, 资源丰富地区, 墓地, 亲信, 知己\n[经] 仓库, 栈房, 贮藏所",
+      "example": ""
+    },
+    {
+      "word": "retrieval",
+      "phonetic": "/ri'tri:vl/",
+      "part": "noun",
+      "definition": "n. (computer science) the operation of accessing information from the computer's memory\nn. the cognitive operation of accessing information in memory",
+      "translation": "n. 取回, 恢复, 检索\n[计] 检索",
+      "example": ""
+    },
+    {
+      "word": "robustness",
+      "phonetic": "",
+      "part": "noun",
+      "definition": "n. the property of being strong and healthy in constitution\nn. the characteristic of being strong enough to withstand intellectual challenge",
+      "translation": "[计] 健壮性\n[化] 鲁棒性; 稳健性",
+      "example": ""
+    },
+    {
+      "word": "runtime",
+      "phonetic": "",
+      "part": "noun",
+      "definition": "See the Chinese definition below.",
+      "translation": "n. 执行时间, 运行时间",
+      "example": ""
+    },
+    {
+      "word": "safety",
+      "phonetic": "/'seifti/",
+      "part": "noun / transitive verb",
+      "definition": "n. the state of being certain that adverse effects will not be caused by some agent under defined conditions\nn. a safe place\nn. a score in American football; a player is tackled behind his own goal line",
+      "translation": "n. 安全, 保险, 平安, 保安设备\nvt. 保护, 防护",
+      "example": ""
+    },
+    {
+      "word": "sampling",
+      "phonetic": "/'sɑ:mpliŋ/",
+      "part": "noun",
+      "definition": "n. (statistics) the selection of a suitable sample for study\nn. measurement at regular intervals of the amplitude of a varying waveform (in order to convert it to digital form)",
+      "translation": "[计] 抽样; 采样\n[化] 取样",
+      "example": ""
+    },
+    {
+      "word": "schema",
+      "phonetic": "/'ski:mә/",
+      "part": "noun",
+      "definition": "n. an internal representation of the world; an organization of concepts and actions that can be revised by new information about the world",
+      "translation": "n. 概要, 图解, 略图\n[计] 模式",
+      "example": ""
+    },
+    {
+      "word": "search",
+      "phonetic": "/sә:tʃ/",
+      "part": "noun / verb",
+      "definition": "n. the activity of looking thoroughly in order to find something or someone\nn. an investigation seeking answers\nn. an operation that determines whether one or more of a set of items has a specified property\nn. the examination of alternative hypotheses",
+      "translation": "n. 搜寻, 查究\nv. 搜寻, 搜查, 探求, 调查, 搜索\n[计] 搜索, 路径检索程序",
+      "example": ""
+    },
+    {
+      "word": "security",
+      "phonetic": "/si'kjuriti/",
+      "part": "noun",
+      "definition": "n. the state of being free from danger or injury\nn. defense against financial failure; financial independence\nn. freedom from anxiety or fear\nn. a formal declaration that documents a fact of relevance to finance and investment; the holder has a right to receive interest or dividends",
+      "translation": "n. 安全, 安全性, 防护物, 保安, 可靠性, 担保人, 抵押品, 保证金\n[计] 安全性, 保密性, 安全检查程序",
+      "example": ""
+    },
+    {
+      "word": "semaphore",
+      "phonetic": "/'semәfɒ:/",
+      "part": "noun / verb / transitive verb",
+      "definition": "n. an apparatus for visual signaling with lights or mechanically moving arms\nv. send signals by or as if by semaphore\nv. convey by semaphore, of information",
+      "translation": "n. 信号, 臂板信号, 旗语\nvt. 用信号联络\nvi. 打信号, 发旗语\n[计] 信号; 号志; 信号灯",
+      "example": ""
+    },
+    {
+      "word": "sequence",
+      "phonetic": "/'si:kwәns/",
+      "part": "noun / transitive verb",
+      "definition": "n. serial arrangement in which things follow in logical order or a recurrent pattern\nn. a following of one thing after another in time\nn. film consisting of a succession of related shots that develop a given subject in a movie\nn. several repetitions of a melodic phrase in different keys",
+      "translation": "n. 序列, 续发事件, 顺序, 连续\nvt. 按顺序排好\n[计] 顺序",
+      "example": ""
+    },
+    {
+      "word": "server",
+      "phonetic": "/'sә:vә/",
+      "part": "noun",
+      "definition": "n. (court games) the player who serves to start a point\nn. (computer science) a computer that provides client stations with access to files and printers as shared resources to a computer network\nn. utensil used in serving food or drink",
+      "translation": "n. 服伺者, 上菜用具, 发球员\nn. 服务器\n[计] 服务器, 服务器启动程序, 服务台程序",
+      "example": ""
+    },
+    {
+      "word": "sharding",
+      "phonetic": "/ˈʃɑːdɪŋ/",
+      "part": "noun",
+      "definition": "n. dividing a database or model across multiple independent partitions",
+      "translation": "n. 分片；将数据库或模型划分到多个独立分区的技术",
+      "example": ""
+    },
+    {
+      "word": "socket",
+      "phonetic": "/'sɒkit/",
+      "part": "noun / transitive verb",
+      "definition": "n. a bony hollow into which a structure fits\nn. receptacle where something (a pipe or probe or end of a bone) is inserted\nn. a receptacle into which an electric device can be inserted",
+      "translation": "n. 窝, 穴, 插座, 眼窝\nvt. 插进插座\n[计] 套接字",
+      "example": ""
+    },
+    {
+      "word": "sorting",
+      "phonetic": "/'sɔ:tiŋ/",
+      "part": "noun",
+      "definition": "n. grouping by class or kind or size",
+      "translation": "[计] 排序\n[经] 分类拣选, 整理",
+      "example": ""
+    },
+    {
+      "word": "sparsity",
+      "phonetic": "/'spɑ:siti/",
+      "part": "noun",
+      "definition": "n the property of being scanty or scattered; lacking denseness",
+      "translation": "n. 稀疏, 稀少, 贫乏",
+      "example": ""
+    },
+    {
+      "word": "speech recognition",
+      "phonetic": "",
+      "part": "word",
+      "definition": "See the Chinese definition below.",
+      "translation": "[计] 语音识别",
+      "example": ""
+    },
+    {
+      "word": "stack",
+      "phonetic": "/stæk/",
+      "part": "noun / verb / transitive verb",
+      "definition": "n. an orderly pile\nv. load or cover with stacks\nv. arrange in stacks\nv. arrange the order of so as to increase one's winning chances",
+      "translation": "n. 堆叠, 堆, 大量, 书库, 枪架, 烟囱, 堆积, 存贮栈\nvt. 堆积, 堆满, 暗中对...做手脚\nvi. 堆起\n[计] 堆积, 堆栈",
+      "example": ""
+    },
+    {
+      "word": "storage",
+      "phonetic": "/'stɒ:ridʒ/",
+      "part": "noun",
+      "definition": "n. the act of storing something\nn. the commercial enterprise of storing goods and materials\nn. (computer science) the process of storing information in a computer memory or on a magnetic tape or disk",
+      "translation": "n. 存储器, 储藏, 保管, 库存, 仓库\n[计] 存放处; 存储",
+      "example": ""
+    },
+    {
+      "word": "supervised learning",
+      "phonetic": "",
+      "part": "word",
+      "definition": "See the Chinese definition below.",
+      "translation": "[计] 监督学习",
+      "example": ""
+    },
+    {
+      "word": "synthetic data",
+      "phonetic": "/sɪnˌθetɪk ˈdeɪtə/",
+      "part": "noun",
+      "definition": "n. artificially generated data designed to resemble real observations",
+      "translation": "n. 合成数据；人工生成并模拟真实观测特征的数据",
+      "example": ""
+    },
+    {
+      "word": "tensor",
+      "phonetic": "/'tensә/",
+      "part": "noun",
+      "definition": "n. a generalization of the concept of a vector\nn. any of several muscles that cause an attached structure to become tense or firm",
+      "translation": "n. 张肌, 张量\n[化] 张量",
+      "example": ""
+    },
+    {
+      "word": "thread",
+      "phonetic": "/θred/",
+      "part": "noun / verb / transitive verb",
+      "definition": "n. a fine cord of twisted fibers (of cotton or silk or wool or nylon etc.) used in sewing and weaving\nv. pass a thread through\nv. remove facial hair by tying a fine string around it and pulling at the string\nv. pass through or into",
+      "translation": "n. 线, 丝, 纤维, 线索\nvt. 穿线于, 穿过, 通过, 用线穿成\nvi. 穿过\n[计] 线索, 线程",
+      "example": ""
+    },
+    {
+      "word": "throughput",
+      "phonetic": "/'θru:put/",
+      "part": "noun",
+      "definition": "n. output relative to input; the amount passing through a system from input to output (especially of a computer program over a period of time)",
+      "translation": "n. 生产量, 通过量\n[化] 通过量; 产量",
+      "example": ""
+    },
+    {
+      "word": "token",
+      "phonetic": "/'tәukәn/",
+      "part": "noun / adjective",
+      "definition": "n. an individual instance of a type of symbol\nn. something serving as a sign of something else\nn. a metal or plastic disk that can be redeemed or used in designated slot machines",
+      "translation": "n. 表征, 记号, 代币\na. 象征的, 表意的\n[计] 记号",
+      "example": ""
+    },
+    {
+      "word": "tokenizer",
+      "phonetic": "/ˈtəʊkənaɪzə/",
+      "part": "noun",
+      "definition": "n. software that converts text into tokens that a language model can process",
+      "translation": "n. 分词器；将文本转换为语言模型可处理标记的软件",
+      "example": ""
+    },
+    {
+      "word": "training",
+      "phonetic": "/'treiniŋ/",
+      "part": "noun",
+      "definition": "n. activity leading to skilled behavior",
+      "translation": "n. 训练, 培养\n[医] 训练",
+      "example": ""
+    },
+    {
+      "word": "transaction",
+      "phonetic": "/træn'sækʃәn/",
+      "part": "noun",
+      "definition": "n. the act of transacting within or between groups (as carrying on commercial activities)",
+      "translation": "n. 交易, 办理, 学报, 和解协议\n[计] 事务处理",
+      "example": ""
+    },
+    {
+      "word": "transformer",
+      "phonetic": "/træns'fɒ:mә/",
+      "part": "noun",
+      "definition": "n. an electrical device by which alternating current of one voltage is changed to another voltage",
+      "translation": "n. 变压器, 促使变化的人\n[化] 变压器",
+      "example": ""
+    },
+    {
+      "word": "traversal",
+      "phonetic": "/træ'vә:sl/",
+      "part": "noun",
+      "definition": "n. taking a zigzag path on skis\nn. travel across",
+      "translation": "[计] 遍历",
+      "example": ""
+    },
+    {
+      "word": "tree",
+      "phonetic": "/tri:/",
+      "part": "noun / verb / transitive verb",
+      "definition": "n. a tall perennial woody plant having a main trunk and branches forming a distinct elevated crown; includes both gymnosperms and angiosperms\nn. a figure that branches from a single root\nn. English actor and theatrical producer noted for his lavish productions of Shakespeare (1853-1917)\nv. plant with trees",
+      "translation": "n. 树, 木料, 树状物\nvt. 把...赶上树\n[计] 树; DOS外部命令:显示指定磁盘驱动器的目录结构",
+      "example": ""
+    },
+    {
+      "word": "underfitting",
+      "phonetic": "/ˌʌndəˈfɪtɪŋ/",
+      "part": "noun",
+      "definition": "n. failure of a model to learn important patterns in its training data",
+      "translation": "n. 欠拟合；模型未能学习训练数据中重要规律的现象",
+      "example": ""
+    },
+    {
+      "word": "unsupervised learning",
+      "phonetic": "",
+      "part": "word",
+      "definition": "See the Chinese definition below.",
+      "translation": "[计] 无监学习",
+      "example": ""
+    },
+    {
+      "word": "variable",
+      "phonetic": "/'vєәriәbl/",
+      "part": "noun / adjective",
+      "definition": "n. something that is likely to vary; something that is subject to variation\nn. a quantity that can assume any of a set of values\nn. a symbol (like x or y) that is used in mathematical or logical expressions to represent a variable quantity\na. liable to or capable of change",
+      "translation": "n. 易变的事物, 变数, 可变物, 变量\na. 可变的, 不定的, 易变的, 变量的\n[计] 变量",
+      "example": ""
+    },
+    {
+      "word": "variance",
+      "phonetic": "/'vєәriәns/",
+      "part": "noun",
+      "definition": "n. the second moment around the mean; the expected value of the square of the deviations of a random variable from its mean value\nn. an official dispensation to act contrary to a rule or regulation (typically a building regulation)",
+      "translation": "n. 不一致, 变化, 变异, 分歧, 不和\n[化] 方差; 变种",
+      "example": ""
+    },
+    {
+      "word": "vector",
+      "phonetic": "/'vektә/",
+      "part": "noun / transitive verb",
+      "definition": "n. a variable quantity that can be resolved into components\nn. a straight line segment whose length is magnitude and whose orientation in space is direction\nn. any agent (person or animal or microorganism) that carries and transmits a disease",
+      "translation": "n. 矢量, 传病媒介\nvt. (用无线电)导引, 给...导航\n[计] 矢量; 向量",
+      "example": ""
+    },
+    {
+      "word": "version control",
+      "phonetic": "/ˈvɜːʃən kənˌtrəʊl/",
+      "part": "noun",
+      "definition": "n. a system for tracking and managing changes to files and source code",
+      "translation": "n. 版本控制；跟踪并管理文件或源代码变更的系统",
+      "example": ""
+    },
+    {
+      "word": "virtualization",
+      "phonetic": "",
+      "part": "word",
+      "definition": "See the Chinese definition below.",
+      "translation": "[计] 虚拟化",
+      "example": ""
+    },
+    {
+      "word": "vulnerability",
+      "phonetic": "/.vʌlnәrә'biliti/",
+      "part": "noun",
+      "definition": "n. the state of being vulnerable or exposed\nn. susceptibility to injury or attack",
+      "translation": "n. 易受伤, 易受责难, 易受伤部位\n[医] 易损性",
+      "example": ""
+    },
+    {
+      "word": "weight",
+      "phonetic": "/weit/",
+      "part": "noun / transitive verb",
+      "definition": "n. the vertical force exerted by a mass as a result of gravity\nn. sports equipment used in calisthenic exercises and weightlifting; it is not attached to anything and is raised and lowered by use of the hands and arms\nn. the relative importance granted to something\nn. an artifact that is heavy",
+      "translation": "n. 重, 重量, 体重, 砝码, 重大, 影响, 力量\nvt. 加重量于, 压迫, 使加权, 称重量\n[计] 粗细",
+      "example": ""
+    }
+  ]
+}
