@@ -8,7 +8,8 @@ A 78-column, keyboard-first vocabulary TUI modeled on the public layout of `ssh 
 
 Features:
 
-- print-inspired English–Chinese dictionary layout with 4,801 indexed entries
+- single-sheet paper interface with 4,801 connected vocabulary strips
+- serrated separators and a right-to-left tear-off animation when a word is mastered
 - each word opens a dedicated detail page with part of speech, phonetic transcription, Chinese meaning, English definition, and example
 - previous/next entry navigation and shareable URL hashes
 - checking a known word immediately hides it from the learning list

@@ -1146,6 +1146,249 @@
       .entry-navigation button + button { padding-left: 16px; }
     }
 
+    /* Paper strip edition */
+    body {
+      background: #d8d3c9;
+      background-image: radial-gradient(rgba(64, 56, 46, .055) .6px, transparent .6px);
+      background-size: 5px 5px;
+    }
+
+    .app {
+      position: relative;
+      width: min(900px, calc(100% - 40px));
+      min-height: calc(100vh - 64px);
+      margin: 32px auto;
+      padding: 28px 34px 24px;
+      border: 0;
+      background: #faf8f1;
+      box-shadow: 0 16px 40px rgba(55, 47, 38, .13);
+    }
+
+    .app::before,
+    .app::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      height: 9px;
+      pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='9' viewBox='0 0 24 9'%3E%3Cpath d='M0 9 L6 2 L12 9 L18 2 L24 9' fill='%23faf8f1'/%3E%3C/svg%3E") repeat-x;
+      background-size: 24px 9px;
+    }
+
+    .app::before { top: -8px; }
+    .app::after { bottom: -8px; rotate: 180deg; }
+
+    .toolbar {
+      position: static;
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto auto;
+      gap: 24px;
+      margin: 0;
+      padding: 0 0 17px;
+      border: 0;
+      background: transparent;
+      backdrop-filter: none;
+    }
+
+    .search-wrap { min-width: 0; }
+
+    .search {
+      height: 36px;
+      border-bottom-color: #b9b2a7;
+      font-family: "Songti SC", STSong, serif;
+      font-size: 14px;
+    }
+
+    .summary {
+      align-self: center;
+      gap: 5px;
+      color: #888176;
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 11px;
+    }
+
+    .summary strong {
+      color: #595249;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .filters {
+      align-self: center;
+      gap: 18px;
+    }
+
+    .filter {
+      min-height: 32px;
+      font-family: "Songti SC", STSong, serif;
+      font-size: 12px;
+    }
+
+    .progress-track {
+      height: 1px;
+      margin: 0 0 11px;
+      background: #d2ccc1;
+    }
+
+    .progress-bar { background: #756d63; }
+
+    .list-head { display: none; }
+
+    .list-card {
+      overflow: visible;
+      margin: 0 -10px;
+    }
+
+    .word-row {
+      position: relative;
+      grid-template-columns: 54px 46px minmax(150px, .72fr) minmax(120px, .6fr) minmax(240px, 1.5fr) 22px;
+      min-height: 74px;
+      padding: 16px 10px 18px;
+      border: 0;
+      background: #faf8f1;
+      cursor: pointer;
+      transition: background .14s ease;
+    }
+
+    .word-row::after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: -3px;
+      height: 7px;
+      z-index: 1;
+      pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='7' viewBox='0 0 24 7'%3E%3Cpath d='M0 4 L6 1 L12 6 L18 1 L24 4' fill='none' stroke='%23c9c1b4' stroke-width='0.8'/%3E%3C/svg%3E") repeat-x;
+      background-size: 24px 7px;
+      opacity: .82;
+    }
+
+    .word-row:hover,
+    .word-row:focus-visible {
+      background: #fffdf7;
+      box-shadow: none;
+    }
+
+    .word-row.completing {
+      z-index: 3;
+      opacity: 1;
+      animation: tear-right-to-left .56s cubic-bezier(.55, .06, .68, .19) forwards;
+      pointer-events: none;
+    }
+
+    .word-row.completing::after { opacity: 1; }
+
+    .row-number {
+      color: #aaa397;
+      font-size: 9px;
+    }
+
+    .check {
+      width: 19px;
+      height: 19px;
+      border-color: #aaa398;
+      background: #faf8f1;
+    }
+
+    .check:checked {
+      border-color: #5d574f;
+      background: #5d574f;
+    }
+
+    .word {
+      color: #27231f;
+      font-size: 18px;
+    }
+
+    .phonetic { color: #837c72; }
+
+    .translation {
+      color: #4d4740;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .row-open { color: #b2aa9e; }
+    .word-row:hover .row-open { color: #6b6359; }
+
+    .footer {
+      justify-content: flex-end;
+      padding: 18px 0 0;
+      border: 0;
+    }
+
+    .footer .text-button {
+      color: #9a9287;
+      font-family: "Songti SC", STSong, serif;
+    }
+
+    .entry-view { min-height: calc(100vh - 120px); }
+    .entry-publication { color: #91897e; }
+
+    @keyframes tear-right-to-left {
+      0% {
+        clip-path: inset(-8px 0 -8px 0);
+        translate: 0 0;
+        rotate: 0deg;
+        opacity: 1;
+      }
+      18% {
+        translate: -3px 0;
+        rotate: -.18deg;
+      }
+      62% {
+        opacity: .82;
+      }
+      100% {
+        clip-path: inset(-8px 100% -8px 0);
+        translate: -18px 1px;
+        rotate: -.7deg;
+        opacity: .18;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body { background: #d8d3c9; }
+
+      .app {
+        width: calc(100% - 18px);
+        min-height: calc(100vh - 28px);
+        margin: 14px auto;
+        padding: 22px 15px 25px;
+      }
+
+      .toolbar {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 9px 15px;
+      }
+
+      .search-wrap { grid-column: 1; }
+      .summary { grid-column: 2; }
+      .filters {
+        grid-column: 1 / -1;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .list-card { margin: 0 -5px; }
+
+      .word-row {
+        grid-template-columns: 32px minmax(92px, .72fr) minmax(0, 1.45fr) 16px;
+        grid-template-areas:
+          "check word meaning open"
+          "number phonetic meaning open";
+        min-height: 78px;
+        padding: 15px 5px 18px;
+      }
+
+      .word-row::after { left: 3px; right: 3px; }
+      .word { font-size: 17px; }
+      .translation { font-size: 13px; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         scroll-behavior: auto !important;
@@ -1158,31 +1401,21 @@
 <body>
   <main class="app">
     <div id="list-view">
-    <section class="hero" aria-labelledby="page-title">
-      <div class="hero-top">
-        <div>
-          <p class="eyebrow">THE GRADUATE LEXICON · A–Z</p>
-          <h1 id="page-title">考研英汉词典</h1>
-          <p class="subtitle">收录 4,801 个考研词条 · 勾选已经掌握的单词，将其移出当前词表。</p>
-        </div>
-        <div class="summary" aria-live="polite">
-          已掌握 <strong id="mastered-count">0</strong> / <span id="total-count">4,801</span>
-        </div>
-      </div>
-      <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progress-bar"></div></div>
-    </section>
-
     <section class="toolbar" aria-label="词汇筛选">
       <label class="search-wrap">
         <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
-        <input class="search" id="search" type="search" placeholder="搜索英文或中文释义" autocomplete="off">
+        <input class="search" id="search" type="search" placeholder="查词" autocomplete="off">
       </label>
+      <div class="summary" aria-live="polite">
+        <strong id="mastered-count">0</strong><span>/</span><span id="total-count">4,801</span>
+      </div>
       <div class="filters" role="group" aria-label="显示范围">
         <button class="filter active" type="button" data-view="learning">未掌握</button>
         <button class="filter" type="button" data-view="mastered">已掌握</button>
         <button class="filter" type="button" data-view="all">全部</button>
       </div>
     </section>
+    <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progress-bar"></div></div>
 
     <section class="list-card" aria-label="考研词汇表">
       <div class="list-head" aria-hidden="true">
@@ -1192,15 +1425,14 @@
     </section>
 
     <footer class="footer">
-      <span>共 4,801 个词条 · 学习记录仅保存在当前浏览器</span>
-      <button class="text-button danger" id="reset-button" type="button">清空学习记录</button>
+      <button class="text-button danger" id="reset-button" type="button">重置</button>
     </footer>
     </div>
 
     <article class="entry-view" id="entry-view" hidden aria-labelledby="entry-word">
       <header class="entry-masthead">
         <button class="entry-back" id="entry-back" type="button" aria-label="返回词条索引">← 返回词条索引</button>
-        <span class="entry-publication">THE GRADUATE LEXICON</span>
+        <span class="entry-publication">ENTRY DETAIL</span>
       </header>
 
       <div class="entry-layout">
@@ -1251,6 +1483,7 @@
       const WORDS = JSON.parse(document.getElementById("word-data").textContent);
       const STORAGE_KEY = "graduate-vocab-checklist:v1";
       const BATCH_SIZE = 180;
+      const TEAR_DURATION = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 580;
       const list = document.getElementById("word-list");
       const search = document.getElementById("search");
       const filters = [...document.querySelectorAll(".filter")];
@@ -1398,7 +1631,7 @@
         const shouldDisappear = (view === "learning" && learned) || (view === "mastered" && !learned);
         if (row && shouldDisappear) {
           row.classList.add("completing");
-          window.setTimeout(() => render(true), 190);
+          window.setTimeout(() => render(true), TEAR_DURATION);
         } else if (row) {
           row.classList.toggle("mastered", learned);
         } else {
