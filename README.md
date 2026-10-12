@@ -2,6 +2,25 @@
 
 A 78-column, keyboard-first vocabulary TUI modeled on the public layout of `ssh terminal.shop`: segmented navigation, a two-column workspace, centered progress text, and a compact shortcut footer.
 
+## Standalone web checklist
+
+`web/graduate-vocab-checklist.html` is a single-file, offline checklist containing all 4,801 Graduate Core words. It can be sent directly to a learner and opened by double-clicking it.
+
+Features:
+
+- one vocabulary item per row with phonetic transcription and Chinese meaning
+- checking a known word immediately hides it from the learning list
+- local browser progress storage
+- English and Chinese search
+- unmastered, mastered, and all-word filters
+- responsive mobile layout and undo support
+
+Rebuild it after updating the source dictionary:
+
+```powershell
+.\.venv\Scripts\python.exe tools\build_web_checklist.py
+```
+
 ## Run
 
 ```powershell
