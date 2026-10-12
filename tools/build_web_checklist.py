@@ -16,7 +16,10 @@ def main() -> None:
             "n": index,
             "w": item["word"],
             "p": item.get("phonetic", ""),
+            "pos": item.get("part", "word"),
+            "d": item.get("definition", ""),
             "t": item.get("translation", ""),
+            "e": item.get("example", ""),
         }
         for index, item in enumerate(payload["words"], start=1)
     ]
@@ -856,6 +859,325 @@ TEMPLATE = r'''<!doctype html>
       .footer { padding-top: 14px; }
     }
 
+    /* Dictionary edition */
+    :root {
+      --bg: #e9e5dc;
+      --paper: #f8f5ed;
+      --ink: #201d19;
+      --muted: #777168;
+      --line: #d7d0c4;
+      --accent: #88362f;
+      --accent-soft: #f0e4df;
+    }
+
+    body { background: var(--bg); }
+
+    .app {
+      width: min(1120px, calc(100% - 44px));
+      min-height: calc(100vh - 48px);
+      margin: 24px auto;
+      padding: 42px 52px 34px;
+      border: 1px solid rgba(77, 65, 51, .14);
+      background: var(--paper);
+      box-shadow: 0 18px 50px rgba(65, 53, 40, .09);
+    }
+
+    .hero { padding: 0 0 28px; border-bottom-color: #37312a; }
+
+    .eyebrow {
+      margin-bottom: 11px;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 11px;
+      letter-spacing: .18em;
+    }
+
+    h1 {
+      font-family: "Songti SC", STSong, "Noto Serif CJK SC", Georgia, serif;
+      font-size: clamp(34px, 5vw, 52px);
+      font-weight: 600;
+      letter-spacing: -.055em;
+    }
+
+    .subtitle { color: #726c63; }
+    .summary strong { color: var(--accent); }
+    .progress-bar { background: var(--accent); }
+
+    .toolbar {
+      background: rgba(248, 245, 237, .95);
+      border-bottom-color: var(--line);
+    }
+
+    .search:focus { border-color: var(--accent); }
+    .filter::after { background: var(--accent); }
+
+    .list-head, .word-row {
+      grid-template-columns: 62px 46px minmax(165px, .72fr) minmax(125px, .62fr) minmax(280px, 1.65fr) 28px;
+    }
+
+    .list-head {
+      color: #81796e;
+      border-bottom-color: #aaa296;
+    }
+
+    .word-row {
+      cursor: pointer;
+      outline: none;
+    }
+
+    .word-row:hover,
+    .word-row:focus-visible {
+      background: rgba(136, 54, 47, .035);
+    }
+
+    .word-row:focus-visible { box-shadow: inset 2px 0 var(--accent); }
+
+    .word {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .translation {
+      font-family: "Songti SC", STSong, "Noto Serif CJK SC", serif;
+      color: #49433c;
+    }
+
+    .check:hover { border-color: var(--accent); }
+    .check:checked { border-color: var(--accent); background: var(--accent); }
+
+    .row-open {
+      color: #aaa297;
+      font-family: Georgia, serif;
+      font-size: 18px;
+      text-align: right;
+      transition: color .14s ease, translate .14s ease;
+    }
+
+    .word-row:hover .row-open {
+      color: var(--accent);
+      translate: 3px 0;
+    }
+
+    mark { background: #ead8ce; }
+    .toast button { color: #e1b0a8; }
+
+    [hidden] { display: none !important; }
+
+    .entry-view { animation: entry-in .2s ease-out both; }
+
+    .entry-masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #38322b;
+    }
+
+    .entry-back,
+    .entry-navigation button {
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .entry-back {
+      padding: 4px 0;
+      color: var(--accent);
+      font-size: 13px;
+    }
+
+    .entry-back:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+    .entry-publication {
+      color: #777067;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 10px;
+      letter-spacing: .18em;
+    }
+
+    .entry-layout {
+      display: grid;
+      grid-template-columns: minmax(230px, .72fr) minmax(0, 1.55fr);
+      gap: clamp(48px, 8vw, 100px);
+      padding: 66px 0 76px;
+    }
+
+    .entry-identity {
+      position: sticky;
+      top: 36px;
+      align-self: start;
+    }
+
+    .entry-number,
+    .definition-label {
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .entry-identity h2 {
+      margin: 16px 0 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(46px, 7vw, 76px);
+      font-weight: 500;
+      letter-spacing: -.055em;
+      line-height: .98;
+      overflow-wrap: anywhere;
+    }
+
+    .entry-phonetic {
+      color: #69635b;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 19px;
+    }
+
+    .entry-part {
+      margin-top: 14px;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-style: italic;
+    }
+
+    .entry-mastered-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      margin-top: 38px;
+      color: #5f5952;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .definition-section {
+      padding: 0 0 34px;
+      margin-bottom: 34px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .definition-section:last-child { margin-bottom: 0; }
+
+    .definition-label { margin-bottom: 17px; }
+
+    .definition-zh,
+    .definition-en,
+    .entry-example {
+      white-space: pre-line;
+    }
+
+    .definition-zh {
+      font-family: "Songti SC", STSong, "Noto Serif CJK SC", serif;
+      font-size: clamp(20px, 2.4vw, 25px);
+      line-height: 1.72;
+    }
+
+    .definition-en {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      line-height: 1.72;
+    }
+
+    .entry-example {
+      margin: 0;
+      padding-left: 22px;
+      border-left: 2px solid var(--accent);
+      color: #5b554e;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .entry-navigation {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid #aaa296;
+      border-bottom: 1px solid #aaa296;
+    }
+
+    .entry-navigation button {
+      min-height: 94px;
+      padding: 18px 0;
+      text-align: left;
+    }
+
+    .entry-navigation button + button {
+      padding-left: 28px;
+      border-left: 1px solid var(--line);
+      text-align: right;
+    }
+
+    .entry-navigation button:disabled {
+      opacity: .3;
+      cursor: default;
+    }
+
+    .entry-navigation span {
+      display: block;
+      margin-bottom: 8px;
+      color: #888076;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .entry-navigation strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    @keyframes entry-in {
+      from { opacity: 0; translate: 0 5px; }
+      to { opacity: 1; translate: 0 0; }
+    }
+
+    @media (max-width: 720px) {
+      .app {
+        width: 100%;
+        min-height: 100vh;
+        margin: 0;
+        padding: 25px 16px 34px;
+        border: 0;
+        box-shadow: none;
+      }
+
+      .list-head { display: none; }
+
+      .word-row {
+        grid-template-columns: 34px minmax(94px, .72fr) minmax(0, 1.45fr) 18px;
+        grid-template-areas:
+          "check word meaning open"
+          "number phonetic meaning open";
+      }
+
+      .row-open { grid-area: open; align-self: center; }
+
+      .entry-masthead { align-items: flex-start; }
+      .entry-publication { max-width: 140px; text-align: right; line-height: 1.5; }
+
+      .entry-layout {
+        grid-template-columns: 1fr;
+        gap: 42px;
+        padding: 44px 0 54px;
+      }
+
+      .entry-identity { position: static; }
+      .entry-identity h2 { font-size: clamp(46px, 15vw, 64px); }
+      .entry-mastered-control { margin-top: 27px; }
+      .definition-section { padding-bottom: 27px; margin-bottom: 27px; }
+      .definition-zh { font-size: 20px; }
+      .definition-en, .entry-example { font-size: 16px; }
+      .entry-navigation button { min-height: 82px; }
+      .entry-navigation button + button { padding-left: 16px; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         scroll-behavior: auto !important;
@@ -867,12 +1189,13 @@ TEMPLATE = r'''<!doctype html>
 </head>
 <body>
   <main class="app">
+    <div id="list-view">
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-top">
         <div>
-          <p class="eyebrow">GRADUATE VOCABULARY</p>
-          <h1 id="page-title">考研词汇<span class="brand-accent">清单</span></h1>
-          <p class="subtitle">会的直接勾选，单词会自动从未掌握清单中隐藏。</p>
+          <p class="eyebrow">THE GRADUATE LEXICON · A–Z</p>
+          <h1 id="page-title">考研英汉词典</h1>
+          <p class="subtitle">收录 __WORD_COUNT__ 个考研词条 · 勾选已经掌握的单词，将其移出当前词表。</p>
         </div>
         <div class="summary" aria-live="polite">
           已掌握 <strong id="mastered-count">0</strong> / <span id="total-count">__WORD_COUNT__</span>
@@ -895,15 +1218,56 @@ TEMPLATE = r'''<!doctype html>
 
     <section class="list-card" aria-label="考研词汇表">
       <div class="list-head" aria-hidden="true">
-        <span>序号</span><span>会了</span><span>单词</span><span>音标</span><span>中文释义</span>
+        <span>序号</span><span>会了</span><span>词条</span><span>音标</span><span>释义摘要</span><span></span>
       </div>
       <div id="word-list"></div>
     </section>
 
     <footer class="footer">
-      <span>共 __WORD_COUNT__ 个考研词汇 · 学习进度仅保存在当前浏览器</span>
-      <button class="text-button danger" id="reset-button" type="button">清空学习进度</button>
+      <span>共 __WORD_COUNT__ 个词条 · 学习记录仅保存在当前浏览器</span>
+      <button class="text-button danger" id="reset-button" type="button">清空学习记录</button>
     </footer>
+    </div>
+
+    <article class="entry-view" id="entry-view" hidden aria-labelledby="entry-word">
+      <header class="entry-masthead">
+        <button class="entry-back" id="entry-back" type="button" aria-label="返回词条索引">← 返回词条索引</button>
+        <span class="entry-publication">THE GRADUATE LEXICON</span>
+      </header>
+
+      <div class="entry-layout">
+        <aside class="entry-identity">
+          <div class="entry-number" id="entry-number">ENTRY 0001</div>
+          <h2 id="entry-word">abandon</h2>
+          <div class="entry-phonetic" id="entry-phonetic">/əˈbændən/</div>
+          <div class="entry-part" id="entry-part">verb</div>
+          <label class="entry-mastered-control">
+            <input class="check" id="entry-mastered" type="checkbox">
+            <span>标记为已掌握</span>
+          </label>
+        </aside>
+
+        <div class="entry-content">
+          <section class="definition-section">
+            <div class="definition-label">中文释义</div>
+            <div class="definition-zh" id="entry-translation"></div>
+          </section>
+          <section class="definition-section">
+            <div class="definition-label">English definition</div>
+            <div class="definition-en" id="entry-definition"></div>
+          </section>
+          <section class="definition-section" id="entry-example-section">
+            <div class="definition-label">Example</div>
+            <blockquote class="entry-example" id="entry-example"></blockquote>
+          </section>
+        </div>
+      </div>
+
+      <nav class="entry-navigation" aria-label="相邻词条">
+        <button id="previous-entry" type="button"><span>Previous entry</span><strong></strong></button>
+        <button id="next-entry" type="button"><span>Next entry</span><strong></strong></button>
+      </nav>
+    </article>
   </main>
 
   <div class="toast" id="toast" role="status">
@@ -928,6 +1292,21 @@ TEMPLATE = r'''<!doctype html>
       const toast = document.getElementById("toast");
       const toastText = document.getElementById("toast-text");
       const undoButton = document.getElementById("undo-button");
+      const listView = document.getElementById("list-view");
+      const entryView = document.getElementById("entry-view");
+      const entryBack = document.getElementById("entry-back");
+      const entryNumber = document.getElementById("entry-number");
+      const entryWord = document.getElementById("entry-word");
+      const entryPhonetic = document.getElementById("entry-phonetic");
+      const entryPart = document.getElementById("entry-part");
+      const entryTranslation = document.getElementById("entry-translation");
+      const entryDefinition = document.getElementById("entry-definition");
+      const entryExample = document.getElementById("entry-example");
+      const entryExampleSection = document.getElementById("entry-example-section");
+      const entryMastered = document.getElementById("entry-mastered");
+      const previousEntry = document.getElementById("previous-entry");
+      const nextEntry = document.getElementById("next-entry");
+      const wordIndex = new Map(WORDS.map(word => [word.w.toLocaleLowerCase(), word]));
 
       let mastered = loadProgress();
       let view = "learning";
@@ -936,6 +1315,7 @@ TEMPLATE = r'''<!doctype html>
       let renderedCount = 0;
       let lastChanged = null;
       let toastTimer = null;
+      let currentEntry = null;
 
       function loadProgress() {
         try {
@@ -963,7 +1343,7 @@ TEMPLATE = r'''<!doctype html>
         if (view === "learning" && learned) return false;
         if (view === "mastered" && !learned) return false;
         if (!query) return true;
-        return normalize(`${word.w} ${word.p} ${word.t}`).includes(query);
+        return normalize(`${word.w} ${word.p} ${word.pos} ${word.d} ${word.t} ${word.e}`).includes(query);
       }
 
       function escapeHtml(value) {
@@ -1023,8 +1403,19 @@ TEMPLATE = r'''<!doctype html>
           <div class="check-cell"><input class="check" type="checkbox" ${learned ? "checked" : ""} aria-label="${escapeHtml(word.w)} 已掌握"></div>
           <div class="word">${highlighted(word.w)}</div>
           <div class="phonetic">${highlighted(word.p)}</div>
-          <div class="translation">${highlighted(word.t)}</div>`;
+          <div class="translation">${highlighted(word.t)}</div>
+          <div class="row-open" aria-hidden="true">›</div>`;
+        row.tabIndex = 0;
+        row.setAttribute("role", "link");
+        row.setAttribute("aria-label", `查看 ${word.w} 的词条详情`);
         row.querySelector(".check").addEventListener("change", event => changeMastery(word, event.target.checked, row));
+        row.addEventListener("click", event => {
+          if (event.target.closest(".check")) return;
+          navigateToEntry(word);
+        });
+        row.addEventListener("keydown", event => {
+          if (event.key === "Enter") navigateToEntry(word);
+        });
         return row;
       }
 
@@ -1037,12 +1428,75 @@ TEMPLATE = r'''<!doctype html>
         showToast(learned ? `已掌握 ${word.w}` : `已恢复 ${word.w}`);
 
         const shouldDisappear = (view === "learning" && learned) || (view === "mastered" && !learned);
-        if (shouldDisappear) {
+        if (row && shouldDisappear) {
           row.classList.add("completing");
           window.setTimeout(() => render(true), 190);
-        } else {
+        } else if (row) {
           row.classList.toggle("mastered", learned);
+        } else {
+          render(true);
         }
+        if (currentEntry && currentEntry.w.toLocaleLowerCase() === key) {
+          entryMastered.checked = learned;
+        }
+      }
+
+      function navigateToEntry(word, replace = false) {
+        const hash = `#entry=${encodeURIComponent(word.w)}`;
+        const state = { entry: word.w.toLocaleLowerCase() };
+        if (replace) history.replaceState(state, "", hash);
+        else history.pushState(state, "", hash);
+        showEntry(word);
+      }
+
+      function showEntry(word) {
+        currentEntry = word;
+        listView.hidden = true;
+        entryView.hidden = false;
+        entryNumber.textContent = `ENTRY ${String(word.n).padStart(4, "0")}`;
+        entryWord.textContent = word.w;
+        entryPhonetic.textContent = word.p;
+        entryPart.textContent = word.pos || "word";
+        entryTranslation.textContent = word.t || "暂无中文释义";
+        entryDefinition.textContent = word.d || "No English definition available.";
+        entryExample.textContent = word.e;
+        entryExampleSection.hidden = !word.e;
+        entryMastered.checked = mastered.has(word.w.toLocaleLowerCase());
+
+        const previous = WORDS[word.n - 2];
+        const next = WORDS[word.n];
+        configureEntryNavigation(previousEntry, previous);
+        configureEntryNavigation(nextEntry, next);
+        document.title = `${word.w} · 考研英汉词典`;
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
+
+      function configureEntryNavigation(button, word) {
+        button.disabled = !word;
+        button.querySelector("strong").textContent = word ? word.w : "—";
+        button.onclick = word ? () => navigateToEntry(word) : null;
+      }
+
+      function showList() {
+        currentEntry = null;
+        entryView.hidden = true;
+        listView.hidden = false;
+        document.title = "考研英汉词典";
+        render(true);
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
+
+      function syncRoute() {
+        const match = location.hash.match(/^#entry=(.+)$/);
+        if (match) {
+          const key = decodeURIComponent(match[1]).toLocaleLowerCase();
+          const word = wordIndex.get(key);
+          if (word) {
+            showEntry(word);
+            return;
+          }
+        }
+        showList();
       }
 
       function showToast(message) {
@@ -1057,6 +1511,7 @@ TEMPLATE = r'''<!doctype html>
         if (lastChanged.learned) mastered.delete(lastChanged.key); else mastered.add(lastChanged.key);
         saveProgress();
         render(true);
+        if (currentEntry) entryMastered.checked = mastered.has(currentEntry.w.toLocaleLowerCase());
         toast.classList.remove("show");
         lastChanged = null;
       });
@@ -1072,6 +1527,21 @@ TEMPLATE = r'''<!doctype html>
         render(true);
       }));
 
+      entryMastered.addEventListener("change", event => {
+        if (currentEntry) changeMastery(currentEntry, event.target.checked, null);
+      });
+
+      entryBack.addEventListener("click", () => {
+        if (history.state && history.state.entry) {
+          history.back();
+        } else {
+          history.replaceState({ view: "list" }, "", location.href.split("#")[0]);
+          showList();
+        }
+      });
+
+      window.addEventListener("popstate", syncRoute);
+
       resetButton.addEventListener("click", () => {
         if (!mastered.size) return;
         if (!window.confirm("确定清空全部学习进度吗？")) return;
@@ -1085,7 +1555,8 @@ TEMPLATE = r'''<!doctype html>
         if (nearBottom && renderedCount < visibleWords.length) render(false);
       }, { passive: true });
 
-      render(true);
+      if (!location.hash) history.replaceState({ view: "list" }, "", location.href);
+      syncRoute();
     })();
   </script>
 </body>

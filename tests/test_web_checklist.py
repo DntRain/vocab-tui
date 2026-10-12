@@ -22,7 +22,10 @@ class WebChecklistTests(unittest.TestCase):
         embedded_words = json.loads(match.group(1))
         self.assertEqual(len(embedded_words), len(dictionary["words"]))
         self.assertEqual(len(embedded_words), 4801)
-        self.assertTrue(all(item["w"] and item["t"] for item in embedded_words))
+        self.assertTrue(all(item["w"] and item["t"] and item["d"] for item in embedded_words))
+        self.assertTrue(all("pos" in item and "e" in item for item in embedded_words))
+        self.assertIn('id="entry-view"', document)
+        self.assertIn("navigateToEntry", document)
 
 
 if __name__ == "__main__":
