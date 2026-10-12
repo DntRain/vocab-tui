@@ -1751,6 +1751,183 @@ TEMPLATE = r'''<!doctype html>
       }
     }
 
+    /* Compact printed-dictionary entry */
+    .entry-view { width: min(820px, 100%); }
+
+    .entry-masthead {
+      padding-bottom: 8px;
+      border-bottom: 1px solid #bdb5a9;
+    }
+
+    .entry-layout { padding: 0; }
+
+    .entry-identity {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        "headword mastered"
+        "meta mastered";
+      align-items: center;
+      gap: 5px 24px;
+      padding: 38px 6px 30px;
+      text-align: left;
+    }
+
+    .entry-identity::after,
+    .definition-section::after { content: none; }
+
+    .entry-identity h2 {
+      grid-area: headword;
+      margin: 0;
+      font-size: clamp(46px, 7vw, 64px);
+      line-height: 1;
+    }
+
+    .entry-meta {
+      grid-area: meta;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-top: 7px;
+    }
+
+    .entry-phonetic,
+    .entry-part {
+      display: block;
+      margin: 0;
+    }
+
+    .entry-phonetic { font-size: 17px; }
+
+    .entry-part {
+      padding-left: 12px;
+      border-left: 1px solid #c5bdb1;
+      color: #793b35;
+      font-size: 13px;
+    }
+
+    .entry-mastered-control {
+      grid-area: mastered;
+      align-self: center;
+      min-height: 46px;
+      margin: 0;
+      padding: 0 4px;
+    }
+
+    .entry-content {
+      border-top: 2px solid #4a433a;
+    }
+
+    .definition-section {
+      display: grid;
+      grid-template-columns: 105px minmax(0, 1fr);
+      gap: 24px;
+      padding: 25px 6px 27px;
+      border-bottom: 1px solid #d0c8bc;
+    }
+
+    .definition-label {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin: 0;
+      color: #8c8479;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 9px;
+      letter-spacing: .1em;
+    }
+
+    .definition-label span {
+      color: #39332d;
+      font-family: "Songti SC", STSong, Georgia, serif;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+
+    .definition-zh,
+    .definition-en {
+      display: grid;
+      gap: 11px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .definition-en {
+      color: #423c36;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+    }
+
+    .sense-row {
+      display: grid;
+      grid-template-columns: 25px minmax(0, 1fr);
+      gap: 8px;
+      align-items: start;
+    }
+
+    .sense-number {
+      padding-top: .2em;
+      color: #928a7f;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 11px;
+      font-style: italic;
+    }
+
+    .sense-text { min-width: 0; white-space: pre-line; }
+
+    .entry-example {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      color: #575048;
+      font-size: 17px;
+    }
+
+    .entry-example::before { content: "“"; }
+    .entry-example::after { content: "”"; }
+
+    .entry-navigation {
+      margin-top: 22px;
+      border-top: 1px solid #a9a094;
+      border-bottom: 1px solid #a9a094;
+    }
+
+    @media (max-width: 720px) {
+      .entry-identity {
+        display: block;
+        padding: 30px 4px 27px;
+      }
+
+      .entry-identity h2 { font-size: clamp(43px, 14vw, 58px); }
+      .entry-meta { margin-top: 12px; }
+
+      .entry-mastered-control {
+        width: fit-content;
+        margin-top: 21px;
+        padding: 0;
+      }
+
+      .definition-section {
+        display: block;
+        padding: 23px 4px 25px;
+      }
+
+      .definition-label {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 17px;
+      }
+
+      .definition-label span { font-size: 15px; }
+      .definition-zh, .definition-en { gap: 10px; font-size: 16px; }
+      .sense-row { grid-template-columns: 21px minmax(0, 1fr); gap: 6px; }
+      .entry-example { font-size: 16px; line-height: 1.75; }
+      .entry-navigation { margin-top: 17px; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         scroll-behavior: auto !important;
@@ -1801,8 +1978,10 @@ TEMPLATE = r'''<!doctype html>
       <div class="entry-layout">
         <aside class="entry-identity">
           <h2 id="entry-word">abandon</h2>
-          <div class="entry-phonetic" id="entry-phonetic">/əˈbændən/</div>
-          <div class="entry-part" id="entry-part">verb</div>
+          <div class="entry-meta">
+            <div class="entry-phonetic" id="entry-phonetic">/əˈbændən/</div>
+            <div class="entry-part" id="entry-part">verb</div>
+          </div>
           <label class="entry-mastered-control">
             <input class="check" id="entry-mastered" type="checkbox">
             <span>已掌握</span>
@@ -1811,15 +1990,15 @@ TEMPLATE = r'''<!doctype html>
 
         <div class="entry-content">
           <section class="definition-section">
-            <div class="definition-label">释义</div>
+            <div class="definition-label"><span>中</span>中文释义</div>
             <div class="definition-zh" id="entry-translation"></div>
           </section>
           <section class="definition-section">
-            <div class="definition-label">Definition</div>
+            <div class="definition-label"><span>EN</span>Definition</div>
             <div class="definition-en" id="entry-definition"></div>
           </section>
           <section class="definition-section" id="entry-example-section">
-            <div class="definition-label">例句</div>
+            <div class="definition-label"><span>例</span>Example</div>
             <blockquote class="entry-example" id="entry-example"></blockquote>
           </section>
         </div>
@@ -1988,7 +2167,7 @@ TEMPLATE = r'''<!doctype html>
 
         row.addEventListener("click", event => {
           const now = performance.now();
-          if (now - lastTapAt <= DOUBLE_TAP_DELAY) {
+          if (lastTapAt && now - lastTapAt <= DOUBLE_TAP_DELAY) {
             lastTapAt = 0;
             tear(event);
             return;
@@ -2041,6 +2220,27 @@ TEMPLATE = r'''<!doctype html>
         showEntry(word);
       }
 
+      function renderSenses(container, text, fallback) {
+        const lines = String(text || "")
+          .split(/\n+/)
+          .map(line => line.trim())
+          .filter(Boolean);
+        const senses = lines.length ? lines : [fallback];
+        container.replaceChildren();
+        senses.forEach((sense, index) => {
+          const row = document.createElement("div");
+          row.className = "sense-row";
+          const number = document.createElement("span");
+          number.className = "sense-number";
+          number.textContent = String(index + 1);
+          const content = document.createElement("span");
+          content.className = "sense-text";
+          content.textContent = sense;
+          row.append(number, content);
+          container.appendChild(row);
+        });
+      }
+
       function showEntry(word) {
         currentEntry = word;
         listView.hidden = true;
@@ -2049,8 +2249,8 @@ TEMPLATE = r'''<!doctype html>
         entryWord.textContent = word.w;
         entryPhonetic.textContent = word.p;
         entryPart.textContent = word.pos || "word";
-        entryTranslation.textContent = word.t || "暂无中文释义";
-        entryDefinition.textContent = word.d || "No English definition available.";
+        renderSenses(entryTranslation, word.t, "暂无中文释义");
+        renderSenses(entryDefinition, word.d, "No English definition available.");
         entryExample.textContent = word.e;
         entryExampleSection.hidden = !word.e;
         entryMastered.checked = mastered.has(word.w.toLocaleLowerCase());

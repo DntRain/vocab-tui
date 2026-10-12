@@ -12,7 +12,7 @@ Features:
 - serrated separators and a moving tear edge that removes mastered words from right to left
 - single-click/tap opens details; double-click/tap tears off and masters a word
 - random shuffle with one-click return to A–Z order
-- each word opens a mobile-first paper detail page with part of speech, phonetic transcription, Chinese meaning, English definition, and example
+- each word opens a compact printed-dictionary page with headword metadata, numbered Chinese and English senses, and an example
 - paper-section separators, thumb-sized controls, previous/next navigation, and shareable URL hashes
 - checking a known word immediately hides it from the learning list
 - local browser progress storage
