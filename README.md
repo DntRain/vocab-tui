@@ -10,8 +10,8 @@ Features:
 
 - single-sheet paper interface with 4,801 connected vocabulary strips
 - serrated separators and a right-to-left tear-off animation when a word is mastered
-- each word opens a dedicated detail page with part of speech, phonetic transcription, Chinese meaning, English definition, and example
-- previous/next entry navigation and shareable URL hashes
+- each word opens a mobile-first paper detail page with part of speech, phonetic transcription, Chinese meaning, English definition, and example
+- paper-section separators, thumb-sized controls, previous/next navigation, and shareable URL hashes
 - checking a known word immediately hides it from the learning list
 - local browser progress storage
 - English and Chinese search

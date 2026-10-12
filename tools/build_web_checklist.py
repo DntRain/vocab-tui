@@ -1421,6 +1421,226 @@ TEMPLATE = r'''<!doctype html>
       .translation { font-size: 13px; }
     }
 
+    /* Mobile-first paper entry */
+    .entry-view {
+      width: min(760px, 100%);
+      min-height: calc(100vh - 120px);
+      margin: 0 auto;
+    }
+
+    .entry-masthead {
+      min-height: 54px;
+      padding: 0 4px 10px;
+      border-bottom: 1px solid #cfc8bc;
+    }
+
+    .entry-back {
+      min-width: 72px;
+      min-height: 44px;
+      color: #615a51;
+      font-family: "Songti SC", STSong, serif;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    .entry-number {
+      color: #9c9488;
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: .12em;
+    }
+
+    .entry-layout {
+      display: block;
+      padding: 0;
+    }
+
+    .entry-identity,
+    .definition-section {
+      position: relative;
+      padding: 38px 8px 43px;
+      margin: 0;
+      border: 0;
+    }
+
+    .entry-identity {
+      position: relative;
+      top: auto;
+      text-align: left;
+    }
+
+    .entry-identity::after,
+    .definition-section::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      bottom: -3px;
+      height: 7px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='7' viewBox='0 0 24 7'%3E%3Cpath d='M0 4 L6 1 L12 6 L18 1 L24 4' fill='none' stroke='%23c9c1b4' stroke-width='0.8'/%3E%3C/svg%3E") repeat-x;
+      background-size: 24px 7px;
+    }
+
+    .entry-identity h2 {
+      margin: 0 0 12px;
+      color: #26221e;
+      font-size: clamp(52px, 9vw, 78px);
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .entry-phonetic,
+    .entry-part {
+      display: inline-block;
+      margin: 0 12px 0 0;
+      vertical-align: baseline;
+    }
+
+    .entry-phonetic {
+      color: #746d64;
+      font-size: 18px;
+    }
+
+    .entry-part {
+      color: #8b443d;
+      font-size: 13px;
+    }
+
+    .entry-mastered-control {
+      min-height: 44px;
+      margin-top: 28px;
+      color: #655e55;
+      touch-action: manipulation;
+    }
+
+    .entry-mastered-control .check {
+      width: 22px;
+      height: 22px;
+    }
+
+    .definition-label {
+      margin-bottom: 14px;
+      color: #938b80;
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: .14em;
+    }
+
+    .definition-zh {
+      color: #2f2a25;
+      font-size: clamp(20px, 3vw, 25px);
+      line-height: 1.75;
+    }
+
+    .definition-en {
+      color: #3f3933;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .entry-example {
+      padding-left: 18px;
+      border-left: 1px solid #827a70;
+      color: #625b53;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .entry-navigation {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      margin-top: 7px;
+      border: 0;
+    }
+
+    .entry-navigation button {
+      min-width: 0;
+      min-height: 82px;
+      padding: 17px 8px;
+      touch-action: manipulation;
+    }
+
+    .entry-navigation button + button {
+      padding-left: 18px;
+      border-left-color: #d3ccc0;
+    }
+
+    .entry-navigation strong {
+      display: block;
+      overflow: hidden;
+      font-size: 17px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 720px) {
+      .app {
+        width: calc(100% - 14px);
+        min-height: calc(100dvh - 20px);
+        margin: 10px auto;
+        padding: 20px 12px calc(25px + env(safe-area-inset-bottom));
+      }
+
+      .toolbar {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px 12px;
+      }
+
+      .search { min-height: 44px; font-size: 16px; }
+      .summary { padding-inline: 3px; }
+      .filter { min-height: 44px; min-width: 64px; }
+
+      .word-row {
+        grid-template-columns: 42px minmax(88px, .7fr) minmax(0, 1.45fr) 15px;
+        min-height: 82px;
+        padding: 15px 2px 19px;
+      }
+
+      .check-cell {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        min-width: 42px;
+        min-height: 44px;
+        padding-top: 1px;
+      }
+
+      .check-cell .check { width: 21px; height: 21px; }
+      .row-number { padding-top: 1px; }
+      .phonetic { padding-right: 6px; font-size: 12px; }
+      .translation { line-height: 1.6; }
+      .row-open { font-size: 16px; }
+      .footer .text-button { min-width: 54px; min-height: 44px; }
+
+      .entry-masthead { min-height: 50px; padding-bottom: 6px; }
+      .entry-identity, .definition-section { padding: 32px 5px 38px; }
+      .entry-identity h2 { font-size: clamp(45px, 15vw, 62px); }
+      .entry-phonetic { font-size: 16px; }
+      .entry-mastered-control { margin-top: 22px; }
+      .definition-zh { font-size: 20px; }
+      .definition-en, .entry-example { font-size: 16px; }
+      .entry-navigation button { min-height: 78px; padding-inline: 5px; }
+      .entry-navigation button + button { padding-left: 12px; }
+      .entry-navigation strong { font-size: 15px; }
+    }
+
+    @media (max-width: 390px) {
+      .app { width: calc(100% - 8px); padding-inline: 9px; }
+      .filters { gap: 4px; }
+      .filter { min-width: 58px; }
+      .word-row {
+        grid-template-columns: 38px minmax(82px, .68fr) minmax(0, 1.4fr) 13px;
+      }
+      .word { font-size: 16px; }
+      .translation { font-size: 12.5px; }
+    }
+
+    @media (hover: none) {
+      .word-row:hover { background: #faf8f1; }
+      .word-row:hover .row-open { color: #b2aa9e; translate: 0; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         scroll-behavior: auto !important;
@@ -1463,41 +1683,40 @@ TEMPLATE = r'''<!doctype html>
 
     <article class="entry-view" id="entry-view" hidden aria-labelledby="entry-word">
       <header class="entry-masthead">
-        <button class="entry-back" id="entry-back" type="button" aria-label="返回词条索引">← 返回词条索引</button>
-        <span class="entry-publication">ENTRY DETAIL</span>
+        <button class="entry-back" id="entry-back" type="button" aria-label="返回词表">← 词表</button>
+        <span class="entry-number" id="entry-number">ENTRY 0001</span>
       </header>
 
       <div class="entry-layout">
         <aside class="entry-identity">
-          <div class="entry-number" id="entry-number">ENTRY 0001</div>
           <h2 id="entry-word">abandon</h2>
           <div class="entry-phonetic" id="entry-phonetic">/əˈbændən/</div>
           <div class="entry-part" id="entry-part">verb</div>
           <label class="entry-mastered-control">
             <input class="check" id="entry-mastered" type="checkbox">
-            <span>标记为已掌握</span>
+            <span>已掌握</span>
           </label>
         </aside>
 
         <div class="entry-content">
           <section class="definition-section">
-            <div class="definition-label">中文释义</div>
+            <div class="definition-label">释义</div>
             <div class="definition-zh" id="entry-translation"></div>
           </section>
           <section class="definition-section">
-            <div class="definition-label">English definition</div>
+            <div class="definition-label">Definition</div>
             <div class="definition-en" id="entry-definition"></div>
           </section>
           <section class="definition-section" id="entry-example-section">
-            <div class="definition-label">Example</div>
+            <div class="definition-label">例句</div>
             <blockquote class="entry-example" id="entry-example"></blockquote>
           </section>
         </div>
       </div>
 
       <nav class="entry-navigation" aria-label="相邻词条">
-        <button id="previous-entry" type="button"><span>Previous entry</span><strong></strong></button>
-        <button id="next-entry" type="button"><span>Next entry</span><strong></strong></button>
+        <button id="previous-entry" type="button"><span>上一个</span><strong></strong></button>
+        <button id="next-entry" type="button"><span>下一个</span><strong></strong></button>
       </nav>
     </article>
   </main>
