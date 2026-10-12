@@ -6,11 +6,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "dictionaries" / "graduate-core.json"
+EXTRAS = ROOT / "resources" / "graduate-wordnet.json"
 OUTPUT = ROOT / "web" / "graduate-vocab-checklist.html"
 
 
 def main() -> None:
     payload = json.loads(SOURCE.read_text(encoding="utf-8"))
+    extras = json.loads(EXTRAS.read_text(encoding="utf-8")) if EXTRAS.exists() else {}
     words = [
         {
             "n": index,
@@ -20,6 +22,10 @@ def main() -> None:
             "d": item.get("definition", ""),
             "t": item.get("translation", ""),
             "e": item.get("example", ""),
+            "syn": extras.get(item["word"].casefold(), {}).get("synonyms", []),
+            "ant": extras.get(item["word"].casefold(), {}).get("antonyms", []),
+            "rel": extras.get(item["word"].casefold(), {}).get("related", []),
+            "wx": extras.get(item["word"].casefold(), {}).get("examples", []),
         }
         for index, item in enumerate(payload["words"], start=1)
     ]
@@ -1928,6 +1934,185 @@ TEMPLATE = r'''<!doctype html>
       .entry-navigation { margin-top: 17px; }
     }
 
+    /* Full-width perforations and pull-away tear */
+    .list-card { margin: 0 -34px; }
+
+    .word-row {
+      grid-template-columns: minmax(180px, .72fr) minmax(135px, .62fr) minmax(280px, 1.6fr);
+      padding-left: 34px;
+      padding-right: 34px;
+    }
+
+    .word-row::after {
+      left: 0;
+      right: 0;
+    }
+
+    .word-row.completing::before { content: none; }
+
+    .tear-source {
+      min-height: 0 !important;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      animation: close-paper-gap .72s .08s ease-in-out forwards;
+    }
+
+    .tear-flying {
+      z-index: 9999;
+      min-height: 0;
+      overflow: visible;
+      background: #faf8f1;
+      box-shadow: none;
+      pointer-events: none;
+      transform-origin: 8% 50%;
+      will-change: transform, opacity;
+    }
+
+    .tear-flying::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -4px;
+      height: 7px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='7' viewBox='0 0 24 7'%3E%3Cpath d='M0 4 L6 1 L12 6 L18 1 L24 4' fill='none' stroke='%23c9c1b4' stroke-width='0.8'/%3E%3C/svg%3E") repeat-x;
+      background-size: 24px 7px;
+    }
+
+    .tear-flying-active {
+      animation: pull-away-strip .72s cubic-bezier(.2, .72, .25, 1) forwards;
+    }
+
+    @keyframes pull-away-strip {
+      0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+        box-shadow: 0 0 0 rgba(48, 40, 31, 0);
+        opacity: 1;
+      }
+      18% {
+        transform: translate3d(10px, -3px, 0) rotate(.35deg);
+        box-shadow: -5px 7px 12px rgba(48, 40, 31, .08);
+      }
+      48% {
+        transform: translate3d(46px, -12px, 0) rotate(1.4deg);
+        box-shadow: -12px 16px 22px rgba(48, 40, 31, .12);
+        opacity: .98;
+      }
+      100% {
+        transform: translate3d(210px, -64px, 0) rotate(6deg);
+        box-shadow: -18px 22px 30px rgba(48, 40, 31, .08);
+        opacity: 0;
+      }
+    }
+
+    @keyframes close-paper-gap {
+      0%, 16% {
+        height: var(--tear-height, auto);
+        padding-top: 16px;
+        padding-bottom: 18px;
+      }
+      100% {
+        height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    .relation-content {
+      display: grid;
+      gap: 17px;
+    }
+
+    .relation-group {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .relation-title {
+      color: #8d857a;
+      font-size: 11px;
+    }
+
+    .relation-words {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px 16px;
+    }
+
+    .relation-word {
+      padding: 0;
+      border: 0;
+      border-bottom: 1px solid transparent;
+      background: transparent;
+      color: #4d463f;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    button.relation-word { cursor: pointer; }
+
+    button.relation-word:hover,
+    .relation-word.linked {
+      color: #783b35;
+      border-bottom-color: #bca39e;
+    }
+
+    .entry-examples {
+      display: grid;
+      gap: 16px;
+    }
+
+    .example-row {
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr);
+      gap: 8px;
+      color: #575048;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 16px;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .example-row > span {
+      color: #958d82;
+      font-size: 10px;
+    }
+
+    .example-row q { quotes: "“" "”"; }
+
+    @media (max-width: 720px) {
+      .list-card { margin: 0 -12px; }
+      .word-row {
+        grid-template-columns: minmax(95px, .72fr) minmax(0, 1.5fr);
+        grid-template-areas:
+          "word meaning"
+          "phonetic meaning";
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .relation-group {
+        grid-template-columns: 55px minmax(0, 1fr);
+        gap: 9px;
+      }
+
+      .relation-words { gap: 6px 13px; }
+      .relation-word { font-size: 14px; }
+    }
+
+    @media (max-width: 390px) {
+      .list-card { margin-left: -9px; margin-right: -9px; }
+      .word-row {
+        grid-template-columns: minmax(86px, .68fr) minmax(0, 1.42fr);
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         scroll-behavior: auto !important;
@@ -1959,7 +2144,7 @@ TEMPLATE = r'''<!doctype html>
 
     <section class="list-card" aria-label="考研词汇表">
       <div class="list-head" aria-hidden="true">
-        <span>序号</span><span>会了</span><span>词条</span><span>音标</span><span>释义摘要</span><span></span>
+        <span>词条</span><span>音标</span><span>释义摘要</span>
       </div>
       <div id="word-list"></div>
     </section>
@@ -1971,7 +2156,7 @@ TEMPLATE = r'''<!doctype html>
 
     <article class="entry-view" id="entry-view" hidden aria-labelledby="entry-word">
       <header class="entry-masthead">
-        <button class="entry-back" id="entry-back" type="button" aria-label="返回词表">← 词表</button>
+        <button class="entry-back" id="entry-back" type="button" aria-label="返回">← 返回</button>
         <span class="entry-number" id="entry-number">ENTRY 0001</span>
       </header>
 
@@ -1997,9 +2182,17 @@ TEMPLATE = r'''<!doctype html>
             <div class="definition-label"><span>EN</span>Definition</div>
             <div class="definition-en" id="entry-definition"></div>
           </section>
+          <section class="definition-section" id="entry-relations-section">
+            <div class="definition-label"><span>词</span>Related</div>
+            <div class="relation-content">
+              <div class="relation-group" id="synonym-group"><div class="relation-title">近义词</div><div class="relation-words" id="entry-synonyms"></div></div>
+              <div class="relation-group" id="antonym-group"><div class="relation-title">反义词</div><div class="relation-words" id="entry-antonyms"></div></div>
+              <div class="relation-group" id="related-group"><div class="relation-title">派生词</div><div class="relation-words" id="entry-related"></div></div>
+            </div>
+          </section>
           <section class="definition-section" id="entry-example-section">
-            <div class="definition-label"><span>例</span>Example</div>
-            <blockquote class="entry-example" id="entry-example"></blockquote>
+            <div class="definition-label"><span>例</span>Examples</div>
+            <div class="entry-examples" id="entry-example"></div>
           </section>
         </div>
       </div>
@@ -2025,7 +2218,7 @@ TEMPLATE = r'''<!doctype html>
       const STORAGE_KEY = "graduate-vocab-checklist:v1";
       const BATCH_SIZE = 180;
       const DOUBLE_TAP_DELAY = 300;
-      const TEAR_DURATION = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 580;
+      const TEAR_DURATION = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 720;
       const list = document.getElementById("word-list");
       const search = document.getElementById("search");
       const filters = [...document.querySelectorAll(".filter")];
@@ -2045,6 +2238,13 @@ TEMPLATE = r'''<!doctype html>
       const entryPart = document.getElementById("entry-part");
       const entryTranslation = document.getElementById("entry-translation");
       const entryDefinition = document.getElementById("entry-definition");
+      const entryRelationsSection = document.getElementById("entry-relations-section");
+      const synonymGroup = document.getElementById("synonym-group");
+      const antonymGroup = document.getElementById("antonym-group");
+      const relatedGroup = document.getElementById("related-group");
+      const entrySynonyms = document.getElementById("entry-synonyms");
+      const entryAntonyms = document.getElementById("entry-antonyms");
+      const entryRelated = document.getElementById("entry-related");
       const entryExample = document.getElementById("entry-example");
       const entryExampleSection = document.getElementById("entry-example-section");
       const entryMastered = document.getElementById("entry-mastered");
@@ -2148,8 +2348,7 @@ TEMPLATE = r'''<!doctype html>
         row.innerHTML = `
           <div class="word">${highlighted(word.w)}</div>
           <div class="phonetic">${highlighted(word.p)}</div>
-          <div class="translation">${highlighted(word.t)}</div>
-          <div class="row-open" aria-hidden="true">›</div>`;
+          <div class="translation">${highlighted(word.t)}</div>`;
         row.tabIndex = 0;
         row.setAttribute("role", "link");
         row.setAttribute("aria-label", `单击查看 ${word.w}，双击标记掌握`);
@@ -2190,6 +2389,35 @@ TEMPLATE = r'''<!doctype html>
         return row;
       }
 
+      function animateTearOff(row, onFinished) {
+        if (!TEAR_DURATION) {
+          onFinished();
+          return;
+        }
+        const rectangle = row.getBoundingClientRect();
+        const fragment = row.cloneNode(true);
+        fragment.classList.remove("mastered", "completing");
+        fragment.classList.add("tear-flying");
+        Object.assign(fragment.style, {
+          position: "fixed",
+          left: `${rectangle.left}px`,
+          top: `${rectangle.top}px`,
+          width: `${rectangle.width}px`,
+          height: `${rectangle.height}px`,
+          margin: "0",
+        });
+        document.body.appendChild(fragment);
+
+        row.style.height = `${rectangle.height}px`;
+        row.style.setProperty("--tear-height", `${rectangle.height}px`);
+        row.classList.add("tear-source");
+        window.requestAnimationFrame(() => fragment.classList.add("tear-flying-active"));
+        window.setTimeout(() => {
+          fragment.remove();
+          onFinished();
+        }, TEAR_DURATION);
+      }
+
       function changeMastery(word, learned, row) {
         const key = word.w.toLocaleLowerCase();
         if (learned) mastered.add(key); else mastered.delete(key);
@@ -2200,8 +2428,7 @@ TEMPLATE = r'''<!doctype html>
 
         const shouldDisappear = (view === "learning" && learned) || (view === "mastered" && !learned);
         if (row && shouldDisappear) {
-          row.classList.add("completing");
-          window.setTimeout(() => render(true), TEAR_DURATION);
+          animateTearOff(row, () => render(true));
         } else if (row) {
           row.classList.toggle("mastered", learned);
         } else {
@@ -2241,6 +2468,42 @@ TEMPLATE = r'''<!doctype html>
         });
       }
 
+      function renderWordLinks(group, container, words) {
+        group.hidden = !words.length;
+        container.replaceChildren();
+        words.forEach(value => {
+          const key = value.toLocaleLowerCase();
+          const linkedWord = wordIndex.get(key);
+          const element = document.createElement(linkedWord ? "button" : "span");
+          element.className = linkedWord ? "relation-word linked" : "relation-word";
+          element.textContent = value;
+          if (linkedWord) {
+            element.type = "button";
+            element.addEventListener("click", () => navigateToEntry(linkedWord));
+          }
+          container.appendChild(element);
+        });
+      }
+
+      function renderExamples(word) {
+        const examples = [word.e, ...(word.wx || [])]
+          .map(value => String(value || "").trim())
+          .filter((value, index, values) => value && values.indexOf(value) === index)
+          .slice(0, 3);
+        entryExampleSection.hidden = !examples.length;
+        entryExample.replaceChildren();
+        examples.forEach((example, index) => {
+          const row = document.createElement("div");
+          row.className = "example-row";
+          const number = document.createElement("span");
+          number.textContent = String(index + 1);
+          const text = document.createElement("q");
+          text.textContent = example;
+          row.append(number, text);
+          entryExample.appendChild(row);
+        });
+      }
+
       function showEntry(word) {
         currentEntry = word;
         listView.hidden = true;
@@ -2251,8 +2514,11 @@ TEMPLATE = r'''<!doctype html>
         entryPart.textContent = word.pos || "word";
         renderSenses(entryTranslation, word.t, "暂无中文释义");
         renderSenses(entryDefinition, word.d, "No English definition available.");
-        entryExample.textContent = word.e;
-        entryExampleSection.hidden = !word.e;
+        renderWordLinks(synonymGroup, entrySynonyms, word.syn || []);
+        renderWordLinks(antonymGroup, entryAntonyms, word.ant || []);
+        renderWordLinks(relatedGroup, entryRelated, word.rel || []);
+        entryRelationsSection.hidden = !(word.syn?.length || word.ant?.length || word.rel?.length);
+        renderExamples(word);
         entryMastered.checked = mastered.has(word.w.toLocaleLowerCase());
 
         const previous = WORDS[word.n - 2];

@@ -24,6 +24,8 @@ class WebChecklistTests(unittest.TestCase):
         self.assertEqual(len(embedded_words), 4801)
         self.assertTrue(all(item["w"] and item["t"] and item["d"] for item in embedded_words))
         self.assertTrue(all("pos" in item and "e" in item for item in embedded_words))
+        self.assertTrue(all("syn" in item and "ant" in item and "rel" in item for item in embedded_words))
+        self.assertGreater(sum(bool(item["syn"]) for item in embedded_words), 4000)
         self.assertIn('id="entry-view"', document)
         self.assertIn("navigateToEntry", document)
 

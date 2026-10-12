@@ -124,12 +124,20 @@ To add another dictionary, place a JSON file in `dictionaries/`, open settings, 
 
 ## Dictionary data
 
-Graduate Core and CET-6, plus most AI & CS definitions, are extracted from the MIT-licensed [ECDICT](https://github.com/skywind3000/ECDICT) project. See `dictionaries/ECDICT-LICENSE.txt`.
+Graduate Core and CET-6, plus most AI & CS definitions, are extracted from the MIT-licensed [ECDICT](https://github.com/skywind3000/ECDICT) project. Web detail-page synonyms, antonyms, related forms, and fallback examples are extracted from Princeton WordNet 3.0. See `dictionaries/ECDICT-LICENSE.txt` and `dictionaries/WORDNET-LICENSE.txt`.
 
 To rebuild from an ECDICT CSV export:
 
 ```powershell
 .\.venv\Scripts\python.exe tools\build_dictionaries.py path\to\ecdict.csv
+```
+
+To rebuild the optional WordNet enrichment and standalone HTML:
+
+```powershell
+.\.venv\Scripts\python.exe -m nltk.downloader wordnet
+.\.venv\Scripts\python.exe tools\build_wordnet_extras.py
+.\.venv\Scripts\python.exe tools\build_web_checklist.py
 ```
 
 ## Tests
