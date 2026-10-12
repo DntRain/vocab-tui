@@ -35,16 +35,17 @@ TEMPLATE = r'''<!doctype html>
   <title>考研词汇清单</title>
   <style>
     :root {
-      --bg: #f5f7f8;
+      --bg: #f3f6f5;
       --paper: #ffffff;
-      --ink: #17201e;
-      --muted: #77817e;
-      --line: #e4e9e7;
-      --accent: #14b89a;
-      --accent-soft: #e8f8f4;
+      --ink: #14201d;
+      --muted: #74807c;
+      --line: rgba(41, 65, 59, .11);
+      --accent: #12b99a;
+      --accent-soft: #e7f8f3;
       --purple: #aa8fd2;
       --danger: #b34c54;
-      --shadow: 0 12px 36px rgba(25, 52, 45, .08);
+      --shadow: 0 18px 55px rgba(28, 50, 44, .075);
+      --shadow-hover: 0 24px 65px rgba(28, 50, 44, .11);
     }
 
     * { box-sizing: border-box; }
@@ -52,27 +53,76 @@ TEMPLATE = r'''<!doctype html>
     html { scroll-behavior: smooth; }
 
     body {
+      min-height: 100vh;
       margin: 0;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(18, 185, 154, .10), transparent 28rem),
+        radial-gradient(circle at 92% 14%, rgba(170, 143, 210, .11), transparent 27rem),
+        var(--bg);
       color: var(--ink);
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
       -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: .28;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(40, 64, 58, .16) .55px, transparent .55px);
+      background-size: 18px 18px;
+      mask-image: linear-gradient(to bottom, black, transparent 65%);
     }
 
     button, input { font: inherit; }
 
     .app {
       width: min(980px, calc(100% - 28px));
-      margin: 28px auto 64px;
+      margin: 34px auto 64px;
+      animation: app-in .65s cubic-bezier(.2, .75, .25, 1) both;
     }
 
     .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
       margin-bottom: 18px;
-      padding: 22px 24px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: var(--paper);
+      padding: 25px 27px 24px;
+      border: 1px solid rgba(255, 255, 255, .8);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, .86);
       box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      transition: box-shadow .3s ease, translate .3s ease;
+    }
+
+    .hero:hover { box-shadow: var(--shadow-hover); translate: 0 -1px; }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      padding: 1px;
+      border-radius: inherit;
+      background: linear-gradient(115deg, rgba(18, 185, 154, .48), rgba(255, 255, 255, .6) 38%, rgba(170, 143, 210, .5));
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -58px;
+      top: -95px;
+      z-index: -1;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(170, 143, 210, .15), rgba(18, 185, 154, .05) 48%, transparent 70%);
+      animation: breathe 7s ease-in-out infinite;
     }
 
     .hero-top,
@@ -86,17 +136,29 @@ TEMPLATE = r'''<!doctype html>
 
     .hero-top { justify-content: space-between; gap: 16px; }
 
+    .eyebrow {
+      margin: 0 0 6px;
+      color: #82908c;
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .18em;
+    }
+
     h1 {
       margin: 0;
-      font-size: clamp(24px, 4vw, 34px);
-      letter-spacing: -.04em;
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 760;
+      letter-spacing: -.055em;
+      line-height: 1.12;
     }
 
     .brand-accent {
-      background: linear-gradient(90deg, var(--accent), var(--purple));
+      background: linear-gradient(100deg, var(--accent), var(--purple), var(--accent));
+      background-size: 220% 100%;
       color: transparent;
       background-clip: text;
       -webkit-background-clip: text;
+      animation: gradient-flow 5s ease-in-out infinite;
     }
 
     .subtitle {
@@ -108,30 +170,48 @@ TEMPLATE = r'''<!doctype html>
     .summary {
       flex: 0 0 auto;
       gap: 5px;
+      padding: 9px 12px;
+      border: 1px solid rgba(41, 65, 59, .08);
+      border-radius: 999px;
+      background: rgba(247, 250, 249, .82);
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
       white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8);
     }
 
     .summary strong {
       color: var(--ink);
-      font-size: 19px;
+      font-size: 18px;
+      font-variant-numeric: tabular-nums;
     }
 
     .progress-track {
-      height: 5px;
-      margin-top: 20px;
+      height: 6px;
+      margin-top: 22px;
       overflow: hidden;
       border-radius: 999px;
-      background: #edf1ef;
+      background: rgba(28, 58, 50, .075);
+      box-shadow: inset 0 1px 2px rgba(28, 58, 50, .05);
     }
 
     .progress-bar {
+      position: relative;
       width: 0;
       height: 100%;
+      overflow: hidden;
       border-radius: inherit;
       background: linear-gradient(90deg, var(--accent), var(--purple));
-      transition: width .25s ease;
+      transition: width .45s cubic-bezier(.2, .75, .25, 1);
+    }
+
+    .progress-bar::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      translate: -120% 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .7), transparent);
+      animation: progress-shine 3.4s ease-in-out infinite;
     }
 
     .toolbar {
@@ -141,11 +221,12 @@ TEMPLATE = r'''<!doctype html>
       gap: 10px;
       margin-bottom: 12px;
       padding: 10px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, .94);
-      box-shadow: 0 8px 28px rgba(25, 52, 45, .07);
-      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, .78);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 12px 35px rgba(25, 52, 45, .075);
+      backdrop-filter: blur(20px) saturate(135%);
+      animation: surface-in .6s .08s cubic-bezier(.2, .75, .25, 1) both;
     }
 
     .search-wrap { position: relative; flex: 1 1 320px; }
@@ -168,10 +249,12 @@ TEMPLATE = r'''<!doctype html>
       border: 1px solid var(--line);
       border-radius: 10px;
       outline: none;
-      background: #fafcfb;
+      background: rgba(248, 251, 250, .9);
       color: var(--ink);
-      transition: border-color .15s, box-shadow .15s;
+      transition: border-color .2s, box-shadow .2s, background .2s;
     }
+
+    .search:hover { background: #fff; }
 
     .search:focus {
       border-color: var(--purple);
@@ -190,23 +273,30 @@ TEMPLATE = r'''<!doctype html>
       cursor: pointer;
     }
 
-    .filter { padding: 0 13px; }
+    .filter {
+      padding: 0 13px;
+      transition: color .18s, background .18s, transform .18s, box-shadow .18s;
+    }
 
     .filter:hover,
     .text-button:hover { color: var(--ink); background: #f1f4f3; }
 
+    .filter:active { transform: scale(.97); }
+
     .filter.active {
-      background: var(--accent-soft);
+      background: linear-gradient(135deg, #e3f8f2, #f0ebf8);
       color: #087b68;
-      font-weight: 650;
+      font-weight: 680;
+      box-shadow: inset 0 0 0 1px rgba(18, 185, 154, .08), 0 4px 12px rgba(61, 104, 93, .07);
     }
 
     .list-card {
       overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: var(--paper);
+      border: 1px solid rgba(255, 255, 255, .82);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .92);
       box-shadow: var(--shadow);
+      animation: surface-in .65s .16s cubic-bezier(.2, .75, .25, 1) both;
     }
 
     .list-head,
@@ -220,6 +310,7 @@ TEMPLATE = r'''<!doctype html>
       min-height: 42px;
       padding: 0 18px;
       border-bottom: 1px solid var(--line);
+      background: linear-gradient(90deg, rgba(247, 250, 249, .96), rgba(251, 249, 253, .96));
       color: #929b98;
       font-size: 12px;
       font-weight: 650;
@@ -231,13 +322,19 @@ TEMPLATE = r'''<!doctype html>
       min-height: 62px;
       padding: 9px 18px;
       border-bottom: 1px solid var(--line);
-      transition: opacity .2s, translate .2s, background .15s;
+      animation: row-in .42s calc(var(--row-delay, 0) * 1ms) cubic-bezier(.2, .75, .25, 1) both;
+      transition: opacity .22s, translate .22s, background .18s, box-shadow .18s;
     }
 
     .word-row:last-child { border-bottom: 0; }
-    .word-row:hover { background: #fafcfb; }
-    .word-row.completing { opacity: 0; translate: 12px 0; }
-    .word-row.mastered { opacity: .62; }
+    .word-row:hover {
+      z-index: 1;
+      background: linear-gradient(90deg, rgba(235, 249, 245, .58), rgba(247, 243, 251, .38));
+      box-shadow: inset 3px 0 var(--accent);
+      translate: 2px 0;
+    }
+    .word-row.completing { opacity: 0; translate: 15px 0; }
+    .word-row.mastered { opacity: .58; }
 
     .check {
       display: inline-grid;
@@ -250,14 +347,20 @@ TEMPLATE = r'''<!doctype html>
       border-radius: 7px;
       background: white;
       cursor: pointer;
-      transition: .15s ease;
+      transition: border-color .18s, background .18s, transform .18s, box-shadow .18s;
     }
 
-    .check:hover { border-color: var(--accent); }
+    .check:hover {
+      border-color: var(--accent);
+      transform: scale(1.07);
+      box-shadow: 0 0 0 4px rgba(18, 185, 154, .08);
+    }
 
     .check:checked {
       border-color: var(--accent);
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent), #55cbb5);
+      box-shadow: 0 5px 13px rgba(18, 185, 154, .24);
+      animation: check-pop .26s ease-out;
     }
 
     .check:checked::after {
@@ -273,9 +376,13 @@ TEMPLATE = r'''<!doctype html>
     .word {
       padding-right: 14px;
       font-size: 17px;
-      font-weight: 700;
+      font-weight: 720;
+      letter-spacing: -.015em;
       overflow-wrap: anywhere;
+      transition: color .18s;
     }
+
+    .word-row:hover .word { color: #078a73; }
 
     .phonetic {
       padding-right: 14px;
@@ -326,6 +433,42 @@ TEMPLATE = r'''<!doctype html>
     .text-button { padding: 5px 8px; font-size: 12px; }
     .text-button.danger:hover { color: var(--danger); background: #fff0f1; }
 
+    @keyframes app-in {
+      from { opacity: 0; translate: 0 12px; }
+      to { opacity: 1; translate: 0 0; }
+    }
+
+    @keyframes surface-in {
+      from { opacity: 0; translate: 0 10px; scale: .995; }
+      to { opacity: 1; translate: 0 0; scale: 1; }
+    }
+
+    @keyframes row-in {
+      from { opacity: 0; translate: 0 7px; }
+      to { opacity: 1; translate: 0 0; }
+    }
+
+    @keyframes gradient-flow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes progress-shine {
+      0%, 55% { translate: -120% 0; }
+      85%, 100% { translate: 120% 0; }
+    }
+
+    @keyframes check-pop {
+      0% { transform: scale(.82); }
+      65% { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: .8; }
+      50% { transform: translate3d(-12px, 13px, 0) scale(1.08); opacity: 1; }
+    }
+
     .toast {
       position: fixed;
       left: 50%;
@@ -374,7 +517,11 @@ TEMPLATE = r'''<!doctype html>
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
@@ -383,6 +530,7 @@ TEMPLATE = r'''<!doctype html>
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-top">
         <div>
+          <p class="eyebrow">GRADUATE VOCABULARY</p>
           <h1 id="page-title">考研词汇<span class="brand-accent">清单</span></h1>
           <p class="subtitle">会的直接勾选，单词会自动从未掌握清单中隐藏。</p>
         </div>
@@ -516,18 +664,20 @@ TEMPLATE = r'''<!doctype html>
           return;
         }
         const fragment = document.createDocumentFragment();
-        next.forEach(word => fragment.appendChild(createRow(word)));
+        next.forEach((word, index) => fragment.appendChild(createRow(word, index)));
         list.appendChild(fragment);
         renderedCount += next.length;
         updateSummary();
       }
 
-      function createRow(word) {
+      function createRow(word, index) {
         const key = word.w.toLocaleLowerCase();
+        const rowPosition = (renderedCount + index) % BATCH_SIZE;
         const learned = mastered.has(key);
         const row = document.createElement("div");
         row.className = `word-row${learned ? " mastered" : ""}`;
         row.dataset.word = key;
+        row.style.setProperty("--row-delay", Math.min(rowPosition * 8, 240));
         row.innerHTML = `
           <div class="check-cell"><input class="check" type="checkbox" ${learned ? "checked" : ""} aria-label="${escapeHtml(word.w)} 已掌握"></div>
           <div class="word">${highlighted(word.w)}</div>
