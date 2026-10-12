@@ -4,15 +4,15 @@ A 78-column, keyboard-first vocabulary TUI modeled on the public layout of `ssh 
 
 ## Standalone web checklist
 
-`web/graduate-vocab-checklist.html` is a single-file, offline checklist containing all 4,801 Graduate Core words. It can be sent directly to a learner and opened by double-clicking it.
+`web/graduate-vocab-checklist.html` is a single-file, offline checklist containing 6,096 expanded graduate-exam entries. It can be sent directly to a learner and opened by double-clicking it.
 
 Features:
 
-- single-sheet paper interface with 4,801 connected vocabulary strips
-- serrated separators and a moving tear edge that removes mastered words from right to left
+- single-sheet paper interface with 6,096 connected vocabulary strips
+- full-width serrated separators and a lifted paper strip that tears away toward the upper right
 - single-click/tap opens details; double-click/tap tears off and masters a word
 - random shuffle with one-click return to A–Z order
-- each word opens a compact printed-dictionary page with headword metadata, numbered Chinese and English senses, and an example
+- each word opens a compact printed-dictionary page with numbered Chinese and English senses, inflections, phrases, synonyms, antonyms, derivatives, and examples
 - paper-section separators, thumb-sized controls, previous/next navigation, and shareable URL hashes
 - checking a known word immediately hides it from the learning list
 - local browser progress storage
@@ -98,7 +98,7 @@ Open settings with `g`, select a dictionary with `↑` / `↓`, then press `Ente
 
 Built-in bilingual dictionaries:
 
-- Graduate Core — 4,801 words
+- Graduate Complete — 6,096 words
 - AI & CS — 172 curated terms
 - CET-6 — 5,407 words
 
@@ -124,7 +124,7 @@ To add another dictionary, place a JSON file in `dictionaries/`, open settings, 
 
 ## Dictionary data
 
-Graduate Core and CET-6, plus most AI & CS definitions, are extracted from the MIT-licensed [ECDICT](https://github.com/skywind3000/ECDICT) project. Web detail-page synonyms, antonyms, related forms, and fallback examples are extracted from Princeton WordNet 3.0. See `dictionaries/ECDICT-LICENSE.txt` and `dictionaries/WORDNET-LICENSE.txt`.
+Graduate Complete is the deduplicated union of 4,801 ECDICT graduate-tagged headwords and 5,407 CET-6 headwords: 6,096 unique entries, all with Chinese and English definitions. LemmInflect adds morphology to 4,864 entries; Princeton WordNet adds semantic data to 5,928 entries, including phrases for 3,044 and examples for 4,879. Most AI & CS definitions also come from ECDICT. See `dictionaries/ECDICT-LICENSE.txt` and `dictionaries/WORDNET-LICENSE.txt`.
 
 To rebuild from an ECDICT CSV export:
 
@@ -132,9 +132,10 @@ To rebuild from an ECDICT CSV export:
 .\.venv\Scripts\python.exe tools\build_dictionaries.py path\to\ecdict.csv
 ```
 
-To rebuild the optional WordNet enrichment and standalone HTML:
+To rebuild the expanded graduate dictionary, WordNet enrichment, and standalone HTML:
 
 ```powershell
+.\.venv\Scripts\python.exe tools\build_graduate_complete.py
 .\.venv\Scripts\python.exe -m nltk.downloader wordnet
 .\.venv\Scripts\python.exe tools\build_wordnet_extras.py
 .\.venv\Scripts\python.exe tools\build_web_checklist.py

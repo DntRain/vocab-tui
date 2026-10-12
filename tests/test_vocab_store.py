@@ -13,7 +13,7 @@ class VocabStoreTests(unittest.TestCase):
         dictionaries = load_dictionaries(ROOT / "dictionaries")
         self.assertEqual({item.id for item in dictionaries}, {"graduate-core", "ai-cs", "cet6"})
         counts = {item.id: len(item.words) for item in dictionaries}
-        self.assertEqual(counts, {"graduate-core": 4801, "ai-cs": 172, "cet6": 5407})
+        self.assertEqual(counts, {"graduate-core": 6096, "ai-cs": 172, "cet6": 5407})
         self.assertTrue(all(word.translation for item in dictionaries for word in item.words))
 
     def test_progress_persists_dictionary_and_mastery(self):

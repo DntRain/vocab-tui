@@ -41,11 +41,16 @@ def main() -> None:
         antonyms: list[str] = []
         examples: list[str] = []
         related: list[str] = []
+        phrases: list[str] = []
 
         for synset in wn.synsets(lookup):
             examples.extend(synset.examples())
             for lemma in synset.lemmas():
-                synonyms.append(lemma.name())
+                lemma_name = lemma.name()
+                if "_" in lemma_name or "-" in lemma_name:
+                    phrases.append(lemma_name)
+                else:
+                    synonyms.append(lemma_name)
                 antonyms.extend(antonym.name() for antonym in lemma.antonyms())
                 related.extend(form.name() for form in lemma.derivationally_related_forms())
 
@@ -53,6 +58,7 @@ def main() -> None:
             "synonyms": unique(synonyms, exclude=word, limit=8),
             "antonyms": unique(antonyms, exclude=word, limit=6),
             "related": unique(related, exclude=word, limit=8),
+            "phrases": unique(phrases, exclude=word, limit=8),
             "examples": unique(examples, limit=3),
         }
         if any(entry.values()):

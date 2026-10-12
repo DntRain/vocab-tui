@@ -22,9 +22,11 @@ def main() -> None:
             "d": item.get("definition", ""),
             "t": item.get("translation", ""),
             "e": item.get("example", ""),
+            "forms": item.get("forms", {}),
             "syn": extras.get(item["word"].casefold(), {}).get("synonyms", []),
             "ant": extras.get(item["word"].casefold(), {}).get("antonyms", []),
             "rel": extras.get(item["word"].casefold(), {}).get("related", []),
+            "phr": extras.get(item["word"].casefold(), {}).get("phrases", []),
             "wx": extras.get(item["word"].casefold(), {}).get("examples", []),
         }
         for index, item in enumerate(payload["words"], start=1)
@@ -2042,6 +2044,21 @@ TEMPLATE = r'''<!doctype html>
       gap: 7px 16px;
     }
 
+    .form-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 5px;
+      color: #4d463f;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+    }
+
+    .form-item small {
+      color: #999186;
+      font-family: "Songti SC", STSong, sans-serif;
+      font-size: 9px;
+    }
+
     .relation-word {
       padding: 0;
       border: 0;
@@ -2185,6 +2202,8 @@ TEMPLATE = r'''<!doctype html>
           <section class="definition-section" id="entry-relations-section">
             <div class="definition-label"><span>词</span>Related</div>
             <div class="relation-content">
+              <div class="relation-group" id="form-group"><div class="relation-title">词形</div><div class="relation-words" id="entry-forms"></div></div>
+              <div class="relation-group" id="phrase-group"><div class="relation-title">短语</div><div class="relation-words" id="entry-phrases"></div></div>
               <div class="relation-group" id="synonym-group"><div class="relation-title">近义词</div><div class="relation-words" id="entry-synonyms"></div></div>
               <div class="relation-group" id="antonym-group"><div class="relation-title">反义词</div><div class="relation-words" id="entry-antonyms"></div></div>
               <div class="relation-group" id="related-group"><div class="relation-title">派生词</div><div class="relation-words" id="entry-related"></div></div>
@@ -2239,9 +2258,13 @@ TEMPLATE = r'''<!doctype html>
       const entryTranslation = document.getElementById("entry-translation");
       const entryDefinition = document.getElementById("entry-definition");
       const entryRelationsSection = document.getElementById("entry-relations-section");
+      const formGroup = document.getElementById("form-group");
+      const phraseGroup = document.getElementById("phrase-group");
       const synonymGroup = document.getElementById("synonym-group");
       const antonymGroup = document.getElementById("antonym-group");
       const relatedGroup = document.getElementById("related-group");
+      const entryForms = document.getElementById("entry-forms");
+      const entryPhrases = document.getElementById("entry-phrases");
       const entrySynonyms = document.getElementById("entry-synonyms");
       const entryAntonyms = document.getElementById("entry-antonyms");
       const entryRelated = document.getElementById("entry-related");
@@ -2289,7 +2312,8 @@ TEMPLATE = r'''<!doctype html>
         if (view === "learning" && learned) return false;
         if (view === "mastered" && !learned) return false;
         if (!query) return true;
-        return normalize(`${word.w} ${word.p} ${word.pos} ${word.d} ${word.t} ${word.e}`).includes(query);
+        const forms = Object.values(word.forms || {}).flat().join(" ");
+        return normalize(`${word.w} ${word.p} ${word.pos} ${word.d} ${word.t} ${word.e} ${forms} ${(word.phr || []).join(" ")}`).includes(query);
       }
 
       function escapeHtml(value) {
@@ -2468,6 +2492,24 @@ TEMPLATE = r'''<!doctype html>
         });
       }
 
+      function renderForms(forms) {
+        const entries = Object.entries(forms || {});
+        formGroup.hidden = !entries.length;
+        entryForms.replaceChildren();
+        entries.forEach(([label, values]) => {
+          values.forEach(value => {
+            const item = document.createElement("span");
+            item.className = "form-item";
+            const caption = document.createElement("small");
+            caption.textContent = label;
+            const form = document.createElement("span");
+            form.textContent = value;
+            item.append(caption, form);
+            entryForms.appendChild(item);
+          });
+        });
+      }
+
       function renderWordLinks(group, container, words) {
         group.hidden = !words.length;
         container.replaceChildren();
@@ -2514,10 +2556,18 @@ TEMPLATE = r'''<!doctype html>
         entryPart.textContent = word.pos || "word";
         renderSenses(entryTranslation, word.t, "暂无中文释义");
         renderSenses(entryDefinition, word.d, "No English definition available.");
+        renderForms(word.forms || {});
+        renderWordLinks(phraseGroup, entryPhrases, word.phr || []);
         renderWordLinks(synonymGroup, entrySynonyms, word.syn || []);
         renderWordLinks(antonymGroup, entryAntonyms, word.ant || []);
         renderWordLinks(relatedGroup, entryRelated, word.rel || []);
-        entryRelationsSection.hidden = !(word.syn?.length || word.ant?.length || word.rel?.length);
+        entryRelationsSection.hidden = !(
+          Object.keys(word.forms || {}).length
+          || word.phr?.length
+          || word.syn?.length
+          || word.ant?.length
+          || word.rel?.length
+        );
         renderExamples(word);
         entryMastered.checked = mastered.has(word.w.toLocaleLowerCase());
 
